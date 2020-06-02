@@ -6,6 +6,6 @@ Package status:
 - [ ] py-extra-geom - dep on py-fabio
 - [ ] py-fabio - complex setup
 - [ ] py-karabo-bridge
-- [ ] py-msgpack-numpy
+- [x] py-msgpack-numpy
 - [ ] py-pyfai
 - [ ] py-pyopengl
