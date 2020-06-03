@@ -10,19 +10,20 @@ on:
   pull_request:
     branches: [ master ]
 
-matrix:
-  package: [py-msgpack-numpy, python]
-
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
-  container:
+  package-build-test:
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        package: [py-msgpack-numpy,]
     container:
       image: roscarxfel/spack-centos7-python
     steps:
       - run: |
           source /opt/spack/share/spack/setup-env.sh
-          spack --version
+          echo Spack version: $(spack --version)
+          echo Tests for package ${{ matrix.package }}
           spack repo add --scope=site ./
-          spack install --test=root --verbose py-msgpack-numpy
-        name: Run in container
+          spack install --test=root ${{ matrix.package }}
+
