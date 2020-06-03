@@ -18,7 +18,7 @@ jobs:
       matrix:
         package: [py-msgpack-numpy,]
     container:
-      image: roscarxfel/spack-centos7-python
+      image: roscarxfel/spack-repo-testenv:latest
     steps:
       - uses: actions/checkout@v2
       - run: |
@@ -26,5 +26,4 @@ jobs:
           echo Spack version: $(spack --version)
           echo Tests for package ${{ matrix.package }}
           spack repo add --scope=site ./
-          spack install --test=root ${{ matrix.package }}
-
+          spack install --test=root --verbose ${{ matrix.package }}
