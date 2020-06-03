@@ -28,7 +28,7 @@ class PyMsgpackNumpy(PythonPackage):
     """This package provides encoding and decoding routines that enable the
     serialization and deserialization of numerical and array data types provided
     by numpy using the highly efficient msgpack format. Serialization of
-    Python’s native complex data types is also supported.."""
+    Python's native complex data types is also supported.."""
 
     homepage = "https://github.com/lebedov/msgpack-numpy"
     url      = "https://github.com/lebedov/msgpack-numpy/archive/0.4.5.tar.gz"
