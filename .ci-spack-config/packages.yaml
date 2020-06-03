@@ -1,0 +1,5 @@
+packages:
+  python:
+    version: [3.7.6]
+  all:
+    target: [x86_64]
