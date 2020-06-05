@@ -28,13 +28,14 @@ class PyExtraData(PythonPackage):
 
     # FIXME: Add a proper url for your package's homepage here.
     homepage = "https://github.com/European-XFEL/EXtra-data"
-    url      = "https://github.com/European-XFEL/EXtra-data/archive/1.1.0.tar.gz"
+    url      = "https://github.com/European-XFEL/EXtra-data/archive/1.2.0.tar.gz"
 
     # FIXME: Add a list of GitHub accounts to
     # notify when the package is updated.
     maintainers = ['robertrosca']
+    install_time_test_callbacks = ['import_module_test']
 
-    version('1.1.0', sha256='0083632f46bf9c93848727babc1e25d3c0382f4798776cff4a42972111e3f5f1')
+    version('1.2.0', sha256='bdb1da5469d314dc1c22cbbd1ecc6e1c9e0660bd1bada4f9a8efd97b3d8b1a0e')
 
     # FIXME: Add dependencies if required.
     depends_on('python@3.6:', type=('build', 'run'))
@@ -47,6 +48,27 @@ class PyExtraData(PythonPackage):
     depends_on('py-pandas')
     depends_on('py-scipy')
     depends_on('py-xarray')
+
+    depends_on ('py-coverage', type='test')
+    depends_on ('py-dask', type='test')
+    # depends_on ('py-nbval', type='test') #  Doesn't seem to be needed?
+    depends_on ('py-pytest', type='test')
+    depends_on ('py-pytest-cov', type='test')
+    depends_on ('py-testpath', type='test')
+
+    def test(self):
+        # `setup.py test` should not be used as:
+        #   - `python3 -m pytest -v` should be ran instead
+        #   - the builtin `test` method runs before `install` is finished
+        pass
+
+    @run_after('install')
+    def pytest(self):
+        with working_dir('.'):
+            prefix = self.spec.prefix
+            #  Add bin to path here, as tests also check entrypoints
+            env['PATH'] = env['PATH']+":"+prefix+"/bin"
+            python('-m', 'pytest', '-v')
 
     def build_args(self, spec, prefix):
         # FIXME: Add arguments other than --prefix
