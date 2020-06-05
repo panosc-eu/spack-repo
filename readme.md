@@ -1,39 +1,76 @@
+#  EuXFEL Spack Repository
+
+Repository of Spack packages used at EuXFEL.
+
+This contains an early attempt to run CI tests on the package files themselves
+to ensure that the created packages run correctly. The CI is based on GitHub
+Workflows and Actions, and runs using a Docker container which contains all
+dependencies required for the packages being tested to be installed to save on
+build times.
+
 ## Package status:
 
-- [ ] crystfel
-- [ ] py-cfelpyutils
-- [ ] py-extra-data
-- [ ] py-extra-geom - dep on py-fabio
-- [ ] py-fabio - complex setup
-- [ ] py-karabo-bridge
-- [x] py-msgpack-numpy
-- [ ] py-pyfai
-- [ ] py-pyopengl
+| package          | status                                                                                                                       | repo-deps               | notes |
+|------------------|------------------------------------------------------------------------------------------------------------------------------|-------------------------|-------|
+| crystfel         | ![](https://github.com/robertrosca/spack-repo/workflows/.github/workflows/individual/package-test.crystfel.yaml/badge.svg) |                         | wip   |
+| py-cfelpyutils   | ![]( https://github.com/robertrosca/spack-repo/workflows/.github/workflows/individual/package-test.py-cfelpyutils.yaml/badge.svg) |                         | wip   |
+| py-extra-data    | ![](https://github.com/robertrosca/spack-repo/workflows/.github/workflows/individual/package-test.py-extra-data.yaml/badge.svg) | py-karabo-bridge        | wip   |
+| py-extra-geom    | ![](https://github.com/robertrosca/spack-repo/workflows/.github/workflows/individual/package-test.py-extra-geom.yaml/badge.svg) | py-cfelpyutils          | wip   |
+| py-fabio         | ![](https://github.com/robertrosca/spack-repo/workflows/.github/workflows/individual/package-test.py-fabio.yaml/badge.svg) |                         | wip   |
+| py-karabo-bridge | ![](https://github.com/robertrosca/spack-repo/workflows/.github/workflows/individual/package-test.py-karabo-bridge.yaml/badge.svg) | py-msgpack-numpy        | wip   |
+| py-msgpack-numpy | ![](https://github.com/robertrosca/spack-repo/workflows/.github/workflows/individual/package-test.py-msgpack-numpy.yaml/badge.svg) |                         | wip   |
+| py-pyfai         | ![](https://github.com/robertrosca/spack-repo/workflows/.github/workflows/individual/package-test.py-pyfai.yaml/badge.svg) | py-fabio, py-hdf5plugin | wip   |
 
-## Plan
+![](https://github.com/robertrosca/spack-repo/workflows/.github/workflows/individual/package-test.PACKAGE.yaml/badge.svg)
 
-1. Create a docker image based on spack/centos7 which has python pre-installed
-2. Set up GitHub actions to run a basic tests where all the packages in this
-   repo are installed and tested in the docker image
-3. Use fancier actions, something like [File Changes Action](https://github.com/marketplace/actions/file-changes-action),
-   [Get All Changed Files](https://github.com/marketplace/actions/get-all-changed-files),
-   [stackoverflow example](https://stackoverflow.com/questions/59288971/retrieving-list-of-modified-files-in-github-action)
-   to run the tests individually on each package only when it's modified
-4. *fantasy land* have actions trigger, per-package, whenever a new tag for that
-   package has been released
+## Notes
 
-## Docker Image
+### CI
 
-Building the packages from scratch to perform the tests would take a very long
-time, so a special `spack-repo-testenv` docker image is used for the tests.
+CI runs on GitHub Workflows. There is a file `.github/generate-workflows.py`
+which uses a template workflow `.github/template/package-test.template.yaml`
+file to generate a workflow for each of the packages in this repo.
 
-Spack has an option to install `--only=dependencies`, which lets us install all
-of the dependencies of our packages into the image first, and then the tests
-only need to install our packages, which massively cuts down on the time.
+The workflows run only when their respective package files change, which means
+that tests are not re-ran if a dependency changes, only if the package file
+changes.
 
-TODO: Verify what happens when you have a spec in an environment which contains
-a dependency that is also in our environment, e.g. we define `py-msgpack-python`
-here, but that is a dependency for some of our other packages, does it get built
-as it technically is a depencency, or does it get excluded? If it is still built,
-we can run a final pass of `spack uninstall ...` to make sure that all the
-packages we want to test are not pre-installed in the image.
+Workflows run in a docker container `roscarxfel/spack-repo-testenv:latest` which
+is covered in a different sections.
+
+Workflows run the following commands:
+
+```
+source /opt/spack/share/spack/setup-env.sh
+echo Spack version: $(spack --version)
+echo Tests for package {PACKAGE}
+spack repo add --scope=site ./
+spack install --test=root --verbose {PACKAGE}
+```
+Currently only the tests included in the packages themselves (e.g. for a
+Python package, those run by `python setup.py test`) are ran.
+
+### Test Environment Image
+
+The `Dockerfile` in this repository is used to build the container used during
+the package tests.
+
+The container has all of the dependencies of the packages pre-installed, so that
+only the package being tested needs to be installed. If this wasn't done, each
+test would need to build a substantial amount of software and would take over 20
+minutes to well over an hour to run, which is a bit too long.
+
+This means that whenever a new package is added, the package should be added to
+the spack environment file and then the Docker image should be re-built so that
+the required dependencies are included.
+
+### PR Checklist:
+
+- Add new package to `.github/spack-config/spack.yaml`
+- Rebuild Docker container so that new dependencies are added
+- Add package to status table in readme
+
+## TODO
+
+- Scheduled tests?
+- Dependabot integration?
