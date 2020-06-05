@@ -1,13 +1,13 @@
 on:
   push:
     paths:
-      - 'packages/py-msgpack-numpy/*'
+      - 'packages/py-extra-geom/*'
   pull_request:
     paths:
-      - 'packages/py-msgpack-numpy/*'
+      - 'packages/py-extra-geom/*'
 
 jobs:
-  package-build-test:
+  package-test-py-extra-geom:
     runs-on: ubuntu-latest
     container:
       image: roscarxfel/spack-repo-testenv:latest
@@ -16,6 +16,6 @@ jobs:
       - run: |
           source /opt/spack/share/spack/setup-env.sh
           echo Spack version: $(spack --version)
-          echo Tests for package py-msgpack-numpy
+          echo Tests for package py-extra-geom
           spack repo add --scope=site ./
-          spack install --test=root --verbose py-msgpack-numpy
+          spack install --test=root --verbose py-extra-geom

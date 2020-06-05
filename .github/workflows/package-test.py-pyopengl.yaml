@@ -1,13 +1,13 @@
 on:
   push:
     paths:
-      - 'packages/crystfel/*'
+      - 'packages/py-pyopengl/*'
   pull_request:
     paths:
-      - 'packages/crystfel/*'
+      - 'packages/py-pyopengl/*'
 
 jobs:
-  package-build-test:
+  package-test-py-pyopengl:
     runs-on: ubuntu-latest
     container:
       image: roscarxfel/spack-repo-testenv:latest
@@ -16,6 +16,6 @@ jobs:
       - run: |
           source /opt/spack/share/spack/setup-env.sh
           echo Spack version: $(spack --version)
-          echo Tests for package crystfel
+          echo Tests for package py-pyopengl
           spack repo add --scope=site ./
-          spack install --test=root --verbose crystfel
+          spack install --test=root --verbose py-pyopengl

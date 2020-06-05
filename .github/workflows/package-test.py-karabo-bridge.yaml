@@ -1,13 +1,13 @@
 on:
   push:
     paths:
-      - 'packages/py-pyopengl/*'
+      - 'packages/py-karabo-bridge/*'
   pull_request:
     paths:
-      - 'packages/py-pyopengl/*'
+      - 'packages/py-karabo-bridge/*'
 
 jobs:
-  package-build-test:
+  package-test-py-karabo-bridge:
     runs-on: ubuntu-latest
     container:
       image: roscarxfel/spack-repo-testenv:latest
@@ -16,6 +16,6 @@ jobs:
       - run: |
           source /opt/spack/share/spack/setup-env.sh
           echo Spack version: $(spack --version)
-          echo Tests for package py-pyopengl
+          echo Tests for package py-karabo-bridge
           spack repo add --scope=site ./
-          spack install --test=root --verbose py-pyopengl
+          spack install --test=root --verbose py-karabo-bridge

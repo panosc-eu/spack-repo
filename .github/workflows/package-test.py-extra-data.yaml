@@ -1,13 +1,13 @@
 on:
   push:
     paths:
-      - 'packages/py-cfelpyutils/*'
+      - 'packages/py-extra-data/*'
   pull_request:
     paths:
-      - 'packages/py-cfelpyutils/*'
+      - 'packages/py-extra-data/*'
 
 jobs:
-  package-build-test:
+  package-test-py-extra-data:
     runs-on: ubuntu-latest
     container:
       image: roscarxfel/spack-repo-testenv:latest
@@ -16,6 +16,6 @@ jobs:
       - run: |
           source /opt/spack/share/spack/setup-env.sh
           echo Spack version: $(spack --version)
-          echo Tests for package py-cfelpyutils
+          echo Tests for package py-extra-data
           spack repo add --scope=site ./
-          spack install --test=root --verbose py-cfelpyutils
+          spack install --test=root --verbose py-extra-data

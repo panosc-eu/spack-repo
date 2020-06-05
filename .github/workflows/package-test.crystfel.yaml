@@ -1,13 +1,13 @@
 on:
   push:
     paths:
-      - 'packages/py-extra-geom/*'
+      - 'packages/crystfel/*'
   pull_request:
     paths:
-      - 'packages/py-extra-geom/*'
+      - 'packages/crystfel/*'
 
 jobs:
-  package-build-test:
+  package-test-crystfel:
     runs-on: ubuntu-latest
     container:
       image: roscarxfel/spack-repo-testenv:latest
@@ -16,6 +16,6 @@ jobs:
       - run: |
           source /opt/spack/share/spack/setup-env.sh
           echo Spack version: $(spack --version)
-          echo Tests for package py-extra-geom
+          echo Tests for package crystfel
           spack repo add --scope=site ./
-          spack install --test=root --verbose py-extra-geom
+          spack install --test=root --verbose crystfel

@@ -13,5 +13,5 @@ for spec in specs:
     workflow = copy(template)
     workflow = [l.format(PACKAGE=spec) for l in workflow]
 
-    with open(f"./workflows/individual/package-test.{spec}.yaml", 'w') as f:
+    with open(f"./workflows/package-test.{spec}.yaml", 'w') as f:
         f.writelines(workflow)
