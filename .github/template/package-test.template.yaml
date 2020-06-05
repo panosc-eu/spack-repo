@@ -1,0 +1,21 @@
+on:
+  push:
+    paths:
+      - 'packages/{PACKAGE}/*'
+  pull_request:
+    paths:
+      - 'packages/{PACKAGE}/*'
+
+jobs:
+  package-test-{PACKAGE}:
+    runs-on: ubuntu-latest
+    container:
+      image: roscarxfel/spack-repo-testenv:latest
+    steps:
+      - uses: actions/checkout@v2
+      - run: |
+          source /opt/spack/share/spack/setup-env.sh
+          echo Spack version: $(spack --version)
+          echo Tests for package {PACKAGE}
+          spack repo add --scope=site ./
+          spack install --test=root --verbose {PACKAGE}

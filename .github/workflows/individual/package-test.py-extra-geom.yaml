@@ -1,0 +1,21 @@
+on:
+  push:
+    paths:
+      - 'packages/py-extra-geom/*'
+  pull_request:
+    paths:
+      - 'packages/py-extra-geom/*'
+
+jobs:
+  package-build-test:
+    runs-on: ubuntu-latest
+    container:
+      image: roscarxfel/spack-repo-testenv:latest
+    steps:
+      - uses: actions/checkout@v2
+      - run: |
+          source /opt/spack/share/spack/setup-env.sh
+          echo Spack version: $(spack --version)
+          echo Tests for package py-extra-geom
+          spack repo add --scope=site ./
+          spack install --test=root --verbose py-extra-geom

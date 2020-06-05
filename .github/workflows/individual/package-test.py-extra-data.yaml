@@ -1,0 +1,21 @@
+on:
+  push:
+    paths:
+      - 'packages/py-extra-data/*'
+  pull_request:
+    paths:
+      - 'packages/py-extra-data/*'
+
+jobs:
+  package-build-test:
+    runs-on: ubuntu-latest
+    container:
+      image: roscarxfel/spack-repo-testenv:latest
+    steps:
+      - uses: actions/checkout@v2
+      - run: |
+          source /opt/spack/share/spack/setup-env.sh
+          echo Spack version: $(spack --version)
+          echo Tests for package py-extra-data
+          spack repo add --scope=site ./
+          spack install --test=root --verbose py-extra-data
