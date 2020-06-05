@@ -1,10 +1,8 @@
 on:
   push:
-    paths:
-      - 'packages/{PACKAGE}/*'
+    branch: [ master ]
   pull_request:
-    paths:
-      - 'packages/{PACKAGE}/*'
+    branch: [ master ]
 
 jobs:
   package-test-{PACKAGE}:

@@ -1,10 +1,8 @@
 on:
   push:
-    paths:
-      - 'packages/py-karabo-bridge/*'
+    branch: [ master ]
   pull_request:
-    paths:
-      - 'packages/py-karabo-bridge/*'
+    branch: [ master ]
 
 jobs:
   package-test-py-karabo-bridge:

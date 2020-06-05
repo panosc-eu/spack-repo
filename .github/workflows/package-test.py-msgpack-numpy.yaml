@@ -1,10 +1,8 @@
 on:
   push:
-    paths:
-      - 'packages/py-msgpack-numpy/*'
+    branch: [ master ]
   pull_request:
-    paths:
-      - 'packages/py-msgpack-numpy/*'
+    branch: [ master ]
 
 jobs:
   package-test-py-msgpack-numpy:
@@ -17,6 +15,5 @@ jobs:
           source /opt/spack/share/spack/setup-env.sh
           echo Spack version: $(spack --version)
           echo Tests for package py-msgpack-numpy
-          echo $(spack repo list)
           spack repo add --scope=site ./
           spack install --test=root --verbose py-msgpack-numpy
