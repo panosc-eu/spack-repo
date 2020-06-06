@@ -68,6 +68,15 @@ the required dependencies are included.
 - Rebuild Docker container so that new dependencies are added
 - Add package to status table in readme
 
+## Notes
+
+GitHub Workflows are cool for a few reasons, but one reason alone makes them
+amazing: act https://github.com/nektos/act
+
+It lets you run the workflows locally. For example, run `act -b` in the root of
+this repo to run all the workflows, or for a specific workflow use `-j` to set
+the job, e.g. `act -b -j package-test-py-extra-data`
+
 ## TODO
 
 - Scheduled tests?
