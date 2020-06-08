@@ -1,3 +1,5 @@
+name: {PACKAGE}
+
 on:
   push:
     branch: [ master ]

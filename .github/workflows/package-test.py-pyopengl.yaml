@@ -1,3 +1,5 @@
+name: py-pyopengl
+
 on:
   push:
     branch: [ master ]

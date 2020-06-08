@@ -1,3 +1,5 @@
+name: py-extra-data
+
 on:
   push:
     branch: [ master ]

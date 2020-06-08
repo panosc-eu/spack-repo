@@ -1,3 +1,5 @@
+name: py-cfelpyutils
+
 on:
   push:
     branch: [ master ]

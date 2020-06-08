@@ -1,3 +1,5 @@
+name: py-karabo-bridge
+
 on:
   push:
     branch: [ master ]

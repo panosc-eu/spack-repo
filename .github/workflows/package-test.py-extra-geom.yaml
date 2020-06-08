@@ -1,3 +1,5 @@
+name: py-extra-geom
+
 on:
   push:
     branch: [ master ]

@@ -1,3 +1,5 @@
+name: crystfel
+
 on:
   push:
     branch: [ master ]

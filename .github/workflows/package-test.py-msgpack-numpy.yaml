@@ -1,3 +1,5 @@
+name: py-msgpack-numpy
+
 on:
   push:
     branch: [ master ]
