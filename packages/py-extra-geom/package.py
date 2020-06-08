@@ -33,6 +33,7 @@ class PyExtraGeom(PythonPackage):
     # FIXME: Add a list of GitHub accounts to
     # notify when the package is updated.
     maintainers = ['github_user1', 'github_user2']
+    install_time_test_callbacks = ['import_module_test']
 
     version('0.9.0', sha256='3a757a1517d016ca95f438c5aa9383dc1eefe45a242e651fe54ef4308324e41d')
     version('0.8.0', sha256='329d3addec5d992f592720d93242efcf2d1e1272917de3207408033e1657d21d')
@@ -49,6 +50,25 @@ class PyExtraGeom(PythonPackage):
     depends_on('py-matplotlib')
     depends_on('py-numpy')
     depends_on('py-scipy')
+
+    depends_on ('py-coverage@:4.9', type='test')
+    depends_on ('py-pytest', type='test')
+    depends_on ('py-pytest-cov', type='test')
+    depends_on ('py-testpath', type='test')
+
+    def test(self):
+        # `setup.py test` should not be used as:
+        #   - `python3 -m pytest -v` should be ran instead
+        #   - the builtin `test` method runs before `install` is finished
+        pass
+
+    @run_after('install')
+    def pytest(self):
+        with working_dir('.'):
+            prefix = self.spec.prefix
+            #  Add bin to path here, as tests also check entrypoints
+            env['PATH'] = env['PATH']+":"+prefix+"/bin"
+            python('-m', 'pytest', '-v')
 
     def build_args(self, spec, prefix):
         # FIXME: Add arguments other than --prefix
