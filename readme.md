@@ -62,13 +62,7 @@ This means that whenever a new package is added, the package should be added to
 the spack environment file and then the Docker image should be re-built so that
 the required dependencies are included.
 
-### PR Checklist:
-
-- Add new package to `.github/spack-config/spack.yaml`
-- Rebuild Docker container so that new dependencies are added
-- Add package to status table in readme
-
-## Notes
+### GitHub Workflows
 
 GitHub Workflows are cool for a few reasons, but one reason alone makes them
 amazing: act https://github.com/nektos/act
@@ -76,6 +70,12 @@ amazing: act https://github.com/nektos/act
 It lets you run the workflows locally. For example, run `act -b` in the root of
 this repo to run all the workflows, or for a specific workflow use `-j` to set
 the job, e.g. `act -b -j package-test-py-extra-data`
+
+### PR Checklist:
+
+- Add new package to `.github/spack-config/spack.yaml`
+- Rebuild Docker container so that new dependencies are added
+- Add package to status table in readme
 
 ## TODO
 
