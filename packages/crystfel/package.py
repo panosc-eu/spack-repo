@@ -23,7 +23,7 @@
 from spack import *
 
 
-class Crystfel(AutotoolsPackage):
+class Crystfel(CMakePackage):
     """CrystFEL is a suite of programs for processing (and simulating) Bragg
        diffraction data from "serial crystallography" experiments, often (but
        not always) performed using an X-ray Free-Electron Laser.
@@ -42,13 +42,21 @@ class Crystfel(AutotoolsPackage):
         sha256='1aeb6b8ddee598aa57475a53add36dab176b74cdea5f08808c96837aff40e3f8')
     version('0.8.0', '99d34906d6677f5a10f5e9f782485d8c',
         url='http://www.desy.de/~twhite/crystfel/crystfel-0.8.0.tar.gz')
-    version('0.7.0', 'b064bf00f1de96ff23febe3337c4ac1d',
-        url='http://www.desy.de/~twhite/crystfel/crystfel-0.7.0.tar.gz')
-    version('0.6.3',
-        sha256='69a96b77b4b395b3827c2ac5c4aa2496427077ff31e23244d0a24837a23d5d6a')
+
+    #  Versions 0.7.0 and under used AutoTools, 0.8.0 and above use CMake
+    #  not too sure how to handle the change in build tools in spack
+    # version('0.7.0', 'b064bf00f1de96ff23febe3337c4ac1d',
+    #     url='http://www.desy.de/~twhite/crystfel/crystfel-0.7.0.tar.gz')
+    # version('0.6.3',
+    #     sha256='69a96b77b4b395b3827c2ac5c4aa2496427077ff31e23244d0a24837a23d5d6a')
 
     # FIXME: Add dependencies if required.
     # depends_on('foo')
 
-    depends_on('hdf5')
+    depends_on('cmake@3.12:')
+
+    depends_on('bison@2.6:')
+    depends_on('zlib@1.2.3:')
+    depends_on('hdf5@1.10:')
     depends_on('gsl')
+    depends_on('flex')
