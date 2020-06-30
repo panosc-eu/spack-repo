@@ -35,6 +35,7 @@ class PyExtraGeom(PythonPackage):
     maintainers = ['github_user1', 'github_user2']
     install_time_test_callbacks = ['import_module_test']
 
+    version('0.10.0', sha256='01d1bb2edf5c6b624f3d598833e2729fe108f53991e2a9c58588ae0719295a10')
     version('0.9.0', sha256='3a757a1517d016ca95f438c5aa9383dc1eefe45a242e651fe54ef4308324e41d')
     version('0.8.0', sha256='329d3addec5d992f592720d93242efcf2d1e1272917de3207408033e1657d21d')
     version('0.7.0', sha256='035986e7875301cabd0e1cfef7c31fa359fb92755e89507421bbf8db8c76b8d6')
