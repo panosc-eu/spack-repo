@@ -71,6 +71,30 @@ It lets you run the workflows locally. For example, run `act -b` in the root of
 this repo to run all the workflows, or for a specific workflow use `-j` to set
 the job, e.g. `act -b -j package-test-py-extra-data`
 
+### Dependabot
+
+Dependabot is set up on this repository to provide notifications of package
+updates.
+
+`.github/dependabot/requirements.txt` is a pip requirements file which has a
+list of all of the python pip packages provided in this repository, pinned to
+the highest version specified in the `package.py` file.
+
+For example, `requirements.txt` has `extra_data==1.2.0` as a 'requirement'
+because in `packages/py-extra-data/package.py` we have:
+
+```
+version('1.2.0', sha256='bdb1da5469d314dc1c22cbbd1ecc6e1c9e0660bd1bada4f9a8efd97b3d8b1a0e')
+```
+
+When Dependabot finds an outdated dependency it will open a PR to bump the
+version, this is an indication that the version in the `package.py` file should
+also be bumped.
+
+Dependabot automatically created a branch like: `dependabot/pip/dot-github/dependabot/{PACKAGE_NAME}-{BUMP_VERSION}`,
+you should switch to that branch and make any relevant updates to the
+`package.py` file there, before merging.
+
 ### PR Checklist:
 
 - Add new package to `.github/spack-config/spack.yaml`
