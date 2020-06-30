@@ -10,16 +10,16 @@ build times.
 
 ## Package status:
 
-| package          |                                                                                                                                                                 status | repo-deps                   | notes |
-|------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------:|-----------------------------|-------|
-| crystfel         | ![https://github.com/RobertRosca/spack-repo/actions?query=workflow%3Acrystfel](https://github.com/robertrosca/spack-repo/workflows/crystfel/badge.svg)                 |                             | wip   |
-| py-cfelpyutils   | ![https://github.com/RobertRosca/spack-repo/actions?query=workflow%3Apy-cfelpyutils](https://github.com/robertrosca/spack-repo/workflows/py-cfelpyutils/badge.svg)     |                             | wip   |
-| py-extra-data    | ![https://github.com/RobertRosca/spack-repo/actions?query=workflow%3Apy-extra-data](https://github.com/robertrosca/spack-repo/workflows/py-extra-data/badge.svg)       | py-karabo-bridge, py-fabio  | wip   |
-| py-extra-geom    | ![https://github.com/RobertRosca/spack-repo/actions?query=workflow%3Apy-extra-geom](https://github.com/robertrosca/spack-repo/workflows/py-extra-geom/badge.svg)       | py-cfelpyutils              | wip   |
-| py-fabio         | ![https://github.com/RobertRosca/spack-repo/actions?query=workflow%3Apy-fabio](https://github.com/robertrosca/spack-repo/workflows/py-fabio/badge.svg)                 |                             | wip   |
-| py-karabo-bridge | ![https://github.com/RobertRosca/spack-repo/actions?query=workflow%3Apy-karabo-bridge](https://github.com/robertrosca/spack-repo/workflows/py-karabo-bridge/badge.svg) | py-msgpack-numpy            | wip   |
-| py-msgpack-numpy | ![https://github.com/RobertRosca/spack-repo/actions?query=workflow%3Apy-msgpack-numpy](https://github.com/robertrosca/spack-repo/workflows/py-msgpack-numpy/badge.svg) |                             | wip   |
-| py-pyfai         | ![https://github.com/RobertRosca/spack-repo/actions?query=workflow%3Apy-pyfai](https://github.com/robertrosca/spack-repo/workflows/py-pyfai/badge.svg)                 | py-fabio, py-hdf5plugin     | wip   |
+| package          |                                                                                                                                                                     status | repo-deps                   | notes |
+|------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------:|-----------------------------|-------|
+| crystfel         | [![](https://github.com/robertrosca/spack-repo/workflows/crystfel/badge.svg)](https://github.com/RobertRosca/spack-repo/actions?query=workflow%3Acrystfel)                 |                             | wip   |
+| py-cfelpyutils   | [![](https://github.com/robertrosca/spack-repo/workflows/py-cfelpyutils/badge.svg)](https://github.com/RobertRosca/spack-repo/actions?query=workflow%3Apy-cfelpyutils)     |                             | wip   |
+| py-extra-data    | [![](https://github.com/robertrosca/spack-repo/workflows/py-extra-data/badge.svg)](https://github.com/RobertRosca/spack-repo/actions?query=workflow%3Apy-extra-data)       | py-karabo-bridge, py-fabio  | wip   |
+| py-extra-geom    | [![](https://github.com/robertrosca/spack-repo/workflows/py-extra-geom/badge.svg)](https://github.com/RobertRosca/spack-repo/actions?query=workflow%3Apy-extra-geom)       | py-cfelpyutils              | wip   |
+| py-fabio         | [![](https://github.com/robertrosca/spack-repo/workflows/py-fabio/badge.svg)](https://github.com/RobertRosca/spack-repo/actions?query=workflow%3Apy-fabio)                 |                             | wip   |
+| py-karabo-bridge | [![](https://github.com/robertrosca/spack-repo/workflows/py-karabo-bridge/badge.svg)](https://github.com/RobertRosca/spack-repo/actions?query=workflow%3Apy-karabo-bridge) | py-msgpack-numpy            | wip   |
+| py-msgpack-numpy | [![](https://github.com/robertrosca/spack-repo/workflows/py-msgpack-numpy/badge.svg)](https://github.com/RobertRosca/spack-repo/actions?query=workflow%3Apy-msgpack-numpy) |                             | wip   |
+| py-pyfai         | [![](https://github.com/robertrosca/spack-repo/workflows/py-pyfai/badge.svg)](https://github.com/RobertRosca/spack-repo/actions?query=workflow%3Apy-pyfai)                 | py-fabio, py-hdf5plugin     | wip   |
 
 ## Notes
 
