@@ -2,9 +2,11 @@ name: py-extra-geom
 
 on:
   push:
-    branch: [ master ]
+    branches: [ master ]
+    paths: ['packages/py-extra-geom/**']
   pull_request:
-    branch: [ master ]
+    branches: [ master ]
+    paths: ['packages/py-extra-geom/**']
 
 jobs:
   package-test-py-extra-geom:

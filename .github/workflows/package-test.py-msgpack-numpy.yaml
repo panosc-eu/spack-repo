@@ -2,9 +2,11 @@ name: py-msgpack-numpy
 
 on:
   push:
-    branch: [ master ]
+    branches: [ master ]
+    paths: ['packages/py-msgpack-numpy/**']
   pull_request:
-    branch: [ master ]
+    branches: [ master ]
+    paths: ['packages/py-msgpack-numpy/**']
 
 jobs:
   package-test-py-msgpack-numpy:

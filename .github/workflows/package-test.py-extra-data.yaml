@@ -2,9 +2,11 @@ name: py-extra-data
 
 on:
   push:
-    branch: [ master ]
+    branches: [ master ]
+    paths: ['packages/py-extra-data/**']
   pull_request:
-    branch: [ master ]
+    branches: [ master ]
+    paths: ['packages/py-extra-data/**']
 
 jobs:
   package-test-py-extra-data:

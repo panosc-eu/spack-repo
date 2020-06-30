@@ -2,9 +2,11 @@ name: py-cfelpyutils
 
 on:
   push:
-    branch: [ master ]
+    branches: [ master ]
+    paths: ['packages/py-cfelpyutils/**']
   pull_request:
-    branch: [ master ]
+    branches: [ master ]
+    paths: ['packages/py-cfelpyutils/**']
 
 jobs:
   package-test-py-cfelpyutils:

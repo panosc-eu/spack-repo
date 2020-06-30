@@ -2,9 +2,11 @@ name: crystfel
 
 on:
   push:
-    branch: [ master ]
+    branches: [ master ]
+    paths: ['packages/crystfel/**']
   pull_request:
-    branch: [ master ]
+    branches: [ master ]
+    paths: ['packages/crystfel/**']
 
 jobs:
   package-test-crystfel:

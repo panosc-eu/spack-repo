@@ -2,9 +2,11 @@ name: py-pyopengl
 
 on:
   push:
-    branch: [ master ]
+    branches: [ master ]
+    paths: ['packages/py-pyopengl/**']
   pull_request:
-    branch: [ master ]
+    branches: [ master ]
+    paths: ['packages/py-pyopengl/**']
 
 jobs:
   package-test-py-pyopengl:
