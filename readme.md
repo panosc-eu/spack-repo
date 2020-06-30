@@ -95,6 +95,37 @@ Dependabot automatically created a branch like: `dependabot/pip/dot-github/depen
 you should switch to that branch and make any relevant updates to the
 `package.py` file there, before merging.
 
+For example, look at this [PR from Dependabot](https://github.com/RobertRosca/spack-repo/pull/2)
+which bumps extra-geom to a newer version. The PR was automatically generated,
+then locally you switch to the branch, do this the 'traditional' way by:
+
+```
+> git fetch dependabot/pip/dot-github/dependabot/extra-geom-0.10.0
+> git checkout dependabot/pip/dot-github/dependabot/extra-geom-0.10.0
+```
+
+Or use the fancier github CLI:
+
+```
+> gh pr list
+> #  Easier to go by the PR number
+> gh pr checkout PR_NUMBER
+```
+
+Then, if you only need to bump the version number as there are no other changes
+required, you just need to get the hash for the new version, do this manually
+by downloading the release tar or with spack by:
+
+```
+> spack checksum py-extra-geom
+#  Enter how many versions you want to get checksums for
+version('0.10.0', sha256='01d1bb2edf5c6b624f3d598833e2729fe108f53991e2a9c58588ae0719295a10'
+```
+
+And copy/paste the new version into the relevant `package.py` file, in this case
+`packages/py-extra-geom/package.py`. Commit the changes, push them, and then if
+the tests pass on the PR merge to master.
+
 ### PR Checklist:
 
 - Add new package to `.github/spack-config/spack.yaml`
