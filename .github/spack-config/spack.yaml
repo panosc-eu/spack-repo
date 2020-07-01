@@ -1,6 +1,7 @@
 spack:
   specs:
     - crystfel
+    - py-calibration-services
     - py-cfelpyutils
     - py-extra-data
     - py-extra-geom
