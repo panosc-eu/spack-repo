@@ -1,6 +1,6 @@
-#  EuXFEL Spack Repository
+# PaNOSC Spack Repository
 
-Repository of Spack packages used at EuXFEL.
+Repository of Spack packages used at PaNOSC partner facilities.
 
 This contains an early attempt to run CI tests on the package files themselves
 to ensure that the created packages run correctly. The CI is based on GitHub
@@ -12,14 +12,14 @@ build times.
 
 | package          |                                                                                                                                                                     status | repo-deps                   | notes |
 |------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------:|-----------------------------|-------|
-| crystfel         | [![](https://github.com/robertrosca/spack-repo/workflows/crystfel/badge.svg)](https://github.com/RobertRosca/spack-repo/actions?query=workflow%3Acrystfel)                 |                             | wip   |
-| py-cfelpyutils   | [![](https://github.com/robertrosca/spack-repo/workflows/py-cfelpyutils/badge.svg)](https://github.com/RobertRosca/spack-repo/actions?query=workflow%3Apy-cfelpyutils)     |                             | wip   |
-| py-extra-data    | [![](https://github.com/robertrosca/spack-repo/workflows/py-extra-data/badge.svg)](https://github.com/RobertRosca/spack-repo/actions?query=workflow%3Apy-extra-data)       | py-karabo-bridge, py-fabio  | wip   |
-| py-extra-geom    | [![](https://github.com/robertrosca/spack-repo/workflows/py-extra-geom/badge.svg)](https://github.com/RobertRosca/spack-repo/actions?query=workflow%3Apy-extra-geom)       | py-cfelpyutils              | wip   |
-| py-fabio         | [![](https://github.com/robertrosca/spack-repo/workflows/py-fabio/badge.svg)](https://github.com/RobertRosca/spack-repo/actions?query=workflow%3Apy-fabio)                 |                             | wip   |
-| py-karabo-bridge | [![](https://github.com/robertrosca/spack-repo/workflows/py-karabo-bridge/badge.svg)](https://github.com/RobertRosca/spack-repo/actions?query=workflow%3Apy-karabo-bridge) | py-msgpack-numpy            | wip   |
-| py-msgpack-numpy | [![](https://github.com/robertrosca/spack-repo/workflows/py-msgpack-numpy/badge.svg)](https://github.com/RobertRosca/spack-repo/actions?query=workflow%3Apy-msgpack-numpy) |                             | wip   |
-| py-pyfai         | [![](https://github.com/robertrosca/spack-repo/workflows/py-pyfai/badge.svg)](https://github.com/RobertRosca/spack-repo/actions?query=workflow%3Apy-pyfai)                 | py-fabio, py-hdf5plugin     | wip   |
+| crystfel         | [![](https://github.com/panosc-eu/spack-repo/workflows/crystfel/badge.svg)](https://github.com/panosc-eu/spack-repo/actions?query=workflow%3Acrystfel)                 |                             | wip   |
+| py-cfelpyutils   | [![](https://github.com/panosc-eu/spack-repo/workflows/py-cfelpyutils/badge.svg)](https://github.com/panosc-eu/spack-repo/actions?query=workflow%3Apy-cfelpyutils)     |                             | wip   |
+| py-extra-data    | [![](https://github.com/panosc-eu/spack-repo/workflows/py-extra-data/badge.svg)](https://github.com/panosc-eu/spack-repo/actions?query=workflow%3Apy-extra-data)       | py-karabo-bridge, py-fabio  | wip   |
+| py-extra-geom    | [![](https://github.com/panosc-eu/spack-repo/workflows/py-extra-geom/badge.svg)](https://github.com/panosc-eu/spack-repo/actions?query=workflow%3Apy-extra-geom)       | py-cfelpyutils              | wip   |
+| py-fabio         | [![](https://github.com/panosc-eu/spack-repo/workflows/py-fabio/badge.svg)](https://github.com/panosc-eu/spack-repo/actions?query=workflow%3Apy-fabio)                 |                             | wip   |
+| py-karabo-bridge | [![](https://github.com/panosc-eu/spack-repo/workflows/py-karabo-bridge/badge.svg)](https://github.com/panosc-eu/spack-repo/actions?query=workflow%3Apy-karabo-bridge) | py-msgpack-numpy            | wip   |
+| py-msgpack-numpy | [![](https://github.com/panosc-eu/spack-repo/workflows/py-msgpack-numpy/badge.svg)](https://github.com/panosc-eu/spack-repo/actions?query=workflow%3Apy-msgpack-numpy) |                             | wip   |
+| py-pyfai         | [![](https://github.com/panosc-eu/spack-repo/workflows/py-pyfai/badge.svg)](https://github.com/panosc-eu/spack-repo/actions?query=workflow%3Apy-pyfai)                 | py-fabio, py-hdf5plugin     | wip   |
 
 ## Notes
 
@@ -95,7 +95,7 @@ Dependabot automatically created a branch like: `dependabot/pip/dot-github/depen
 you should switch to that branch and make any relevant updates to the
 `package.py` file there, before merging.
 
-For example, look at this [PR from Dependabot](https://github.com/RobertRosca/spack-repo/pull/2)
+For example, look at this [PR from Dependabot](https://github.com/panosc-eu/spack-repo/pull/2)
 which bumps extra-geom to a newer version. The PR was automatically generated,
 then locally you switch to the branch, do this the 'traditional' way by:
 
