@@ -3,6 +3,6 @@ extra_data==1.3.0
 extra_geom==0.10.0
 fabio==0.10.2
 karabo-bridge==0.6.0
-msgpack-numpy==0.4.5
+msgpack-numpy==0.4.7
 pyFAI==0.19.0
 PyOpenGL==3.1.5
