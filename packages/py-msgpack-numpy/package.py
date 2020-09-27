@@ -31,12 +31,14 @@ class PyMsgpackNumpy(PythonPackage):
     Python's native complex data types is also supported.."""
 
     homepage = "https://github.com/lebedov/msgpack-numpy"
-    url      = "https://github.com/lebedov/msgpack-numpy/archive/0.4.5.tar.gz"
+    url      = "https://pypi.org/packages/source/m/msgpack-numpy/msgpack-numpy-0.4.7.tar.gz"
 
     import_modules = ['msgpack_numpy']
 
     maintainers = ['robertrosca']
 
+    version('0.4.7',   sha256='8e975dd7dd9eb13cbf5e8cd90af1f12af98706bbeb7acfcbd8d558fd005a85d7')
+    version('0.4.6',   sha256='ef3c5fe3d6cbab5c9db97de7062681c18f82d32a37177aaaf58b483d0336f135')
     version('0.4.5',   sha256='4e88a4147db70f69dce1556317291e04e5107ee7b93ea300f92f1187120da7ec')
     version('0.4.4.3', sha256='c7db37ce01e268190568cf66a6a65d1ad81e3bcfa55dd824103c9b324608a44e')
     version('0.4.4.2', sha256='ac3db232710070ac64d8e1c5123550a1c1fef45d77b6789d2170cbfd2ec711f3')
