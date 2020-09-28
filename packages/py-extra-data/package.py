@@ -43,28 +43,24 @@ class PyExtraData(PythonPackage):
     depends_on('py-setuptools', type='build')
     depends_on('py-fabio') #  custom
     depends_on('py-h5py@2.7.1:')
-    depends_on('py-karabo-bridge@0.6:') #  custom
+    depends_on('py-karabo-bridge@0.6:')  # custom
     depends_on('py-matplotlib')
     depends_on('py-numpy')
     depends_on('py-pandas')
     depends_on('py-scipy')
     depends_on('py-xarray')
 
-    depends_on ('py-coverage', type='test')
-    depends_on ('py-dask', type='test')
-    # depends_on ('py-nbval', type='test') #  Doesn't seem to be needed?
-    depends_on ('py-pytest', type='test')
-    depends_on ('py-pytest-cov', type='test')
-    depends_on ('py-testpath', type='test')
+    depends_on('py-coverage', type='test')
+    depends_on('py-dask', type='test')
+    # depends_on('py-nbval', type='test') #  Doesn't seem to be needed?
+    depends_on('py-pytest', type='test')
+    depends_on('py-pytest-cov', type='test')
+    depends_on('py-testpath', type='test')
 
     def test(self):
         # `setup.py test` should not be used as:
         #   - `python3 -m pytest -v` should be ran instead
         #   - the builtin `test` method runs before `install` is finished
-        pass
-
-    @run_after('install')
-    def pytest(self):
         with working_dir('.'):
             prefix = self.spec.prefix
             #  Add bin to path here, as tests also check entrypoints

@@ -52,19 +52,15 @@ class PyExtraGeom(PythonPackage):
     depends_on('py-numpy')
     depends_on('py-scipy')
 
-    depends_on ('py-coverage@:4.9', type='test')
-    depends_on ('py-pytest', type='test')
-    depends_on ('py-pytest-cov', type='test')
-    depends_on ('py-testpath', type='test')
+    depends_on('py-coverage@:4.9', type='test')
+    depends_on('py-pytest', type='test')
+    depends_on('py-pytest-cov', type='test')
+    depends_on('py-testpath', type='test')
 
     def test(self):
         # `setup.py test` should not be used as:
         #   - `python3 -m pytest -v` should be ran instead
         #   - the builtin `test` method runs before `install` is finished
-        pass
-
-    @run_after('install')
-    def pytest(self):
         with working_dir('.'):
             prefix = self.spec.prefix
             #  Add bin to path here, as tests also check entrypoints
