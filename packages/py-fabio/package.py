@@ -48,6 +48,7 @@ class PyFabio(PythonPackage):
     depends_on('python@3.6:',   type=('build', 'run'))
     depends_on('py-setuptools', type='build')
     depends_on('py-numpy')
+
     def build_args(self, spec, prefix):
         # FIXME: Add arguments other than --prefix
         # FIXME: If not needed delete this function

@@ -25,8 +25,8 @@ from spack import *
 
 class Crystfel(CMakePackage):
     """CrystFEL is a suite of programs for processing (and simulating) Bragg
-       diffraction data from "serial crystallography" experiments, often (but
-       not always) performed using an X-ray Free-Electron Laser.
+    diffraction data from "serial crystallography" experiments, often (but
+    not always) performed using an X-ray Free-Electron Laser.
     """
 
     # FIXME: Add a proper url for your package's homepage here.
