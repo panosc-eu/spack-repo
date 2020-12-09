@@ -50,12 +50,12 @@ class PyExtraData(PythonPackage):
     depends_on('py-scipy')
     depends_on('py-xarray')
 
-    depends_on ('py-coverage', type='test')
-    depends_on ('py-dask', type='test')
+    depends_on('py-coverage', type='test')
+    depends_on('py-dask', type='test')
     # depends_on ('py-nbval', type='test') #  Doesn't seem to be needed?
-    depends_on ('py-pytest', type='test')
-    depends_on ('py-pytest-cov', type='test')
-    depends_on ('py-testpath', type='test')
+    depends_on('py-pytest', type='test')
+    depends_on('py-pytest-cov', type='test')
+    depends_on('py-testpath', type='test')
 
     def test(self):
         # `setup.py test` should not be used as:
