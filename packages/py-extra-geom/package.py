@@ -63,7 +63,7 @@ class PyExtraGeom(PythonPackage):
         # `setup.py test` should not be used as:
         #   - `python3 -m pytest -v` should be ran instead
         #   - the builtin `test` method runs before `install` is finished
-        pytest(self)
+        self.pytest(self)
 
     def pytest(self):
         with working_dir('.'):
