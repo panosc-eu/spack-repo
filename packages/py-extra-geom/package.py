@@ -35,6 +35,8 @@ class PyExtraGeom(PythonPackage):
     maintainers = ['github_user1', 'github_user2']
     install_time_test_callbacks = ['import_module_test']
 
+    version('1.0.0',  sha256='c59a0301ccab81b541717e406e1b97844eb450c10df5e031b417b87987d90deb')
+    version('1.0.0',  sha256='5d3d6c275b4f3b734005d5eb6ec1fb77361fdf386ae1e973859c7deb7e2dea81')
     version('0.10.0', sha256='01d1bb2edf5c6b624f3d598833e2729fe108f53991e2a9c58588ae0719295a10')
     version('0.9.0', sha256='3a757a1517d016ca95f438c5aa9383dc1eefe45a242e651fe54ef4308324e41d')
     version('0.8.0', sha256='329d3addec5d992f592720d93242efcf2d1e1272917de3207408033e1657d21d')
@@ -52,18 +54,17 @@ class PyExtraGeom(PythonPackage):
     depends_on('py-numpy')
     depends_on('py-scipy')
 
-    depends_on ('py-coverage@:4.9', type='test')
-    depends_on ('py-pytest', type='test')
-    depends_on ('py-pytest-cov', type='test')
-    depends_on ('py-testpath', type='test')
+    depends_on('py-coverage@:4.9', type='test')
+    depends_on('py-pytest', type='test')
+    depends_on('py-pytest-cov', type='test')
+    depends_on('py-testpath', type='test')
 
     def test(self):
         # `setup.py test` should not be used as:
         #   - `python3 -m pytest -v` should be ran instead
         #   - the builtin `test` method runs before `install` is finished
-        pass
+        pytest(self)
 
-    @run_after('install')
     def pytest(self):
         with working_dir('.'):
             prefix = self.spec.prefix
