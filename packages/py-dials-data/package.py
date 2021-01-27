@@ -57,8 +57,6 @@ class PyDialsData(PythonPackage):
     depends_on('py-pyyaml@5.3.1')
     depends_on('py-py@1.9.0')
 
-
-
     depends_on('py-coverage@:4.9', type='test')
     # depends_on('py-pytest', type='test') #specify for test too?
     depends_on('py-pytest-cov', type='test')
