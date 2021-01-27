@@ -7,4 +7,9 @@ spack:
     - py-karabo-bridge
     # - py-pyfai
     - py-pyopengl
+    - py-dials-data
+    # - py-extra-foam
+    - py-numexpr
+    - py-procrunner
+    - py-silx
   view: False
