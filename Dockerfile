@@ -10,6 +10,7 @@ RUN spack repo add --scope=site /opt/spack/etc/panosc-spack-repo
 RUN for i in $( seq 0 $(nproc) ); do nohup nice --adjustment=10 spack --env . install --only=dependencies >> ./spack-install.log 2>&1 & done && wait
 #  In case `--only=dependencies` accidentally installs a package we want to test
 #  we find all the explicitly installed packages and uninstall them
+RUN echo Uninstalling $(spack find -xc --no-groups | grep @)
 RUN for p in $(spack find -xc --no-groups | grep @); do spack uninstall --force -y $p; done; exit 0
 #  Remove the repo as it would conflict with the tests
 RUN spack repo remove panosc-spack-repo
