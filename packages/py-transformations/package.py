@@ -49,7 +49,7 @@ class PyTransformations(PythonPackage):
     depends_on('py-setuptools@18.0:', type='build')
     depends_on('py-numpy@1.14.5:')
 
-    #test dependencies
+    # test dependencies
     depends_on('py-coverage@:4.9', type='test')
     depends_on('py-pytest', type='test')
     depends_on('py-pytest-cov', type='test')
