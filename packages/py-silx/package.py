@@ -37,7 +37,7 @@ class PySilx(PythonPackage):
 
     # FIXME: Add a list of GitHub accounts to
     # notify when the package is updated.
-    maintainers = ['RobertRosca', 'julianhoers']
+    maintainers = ['RobertRosca', 'julianhoersch']
 
     version('0.14.0rc3',                   sha256='37f66a56022505b714b72e3975f5f992320b86fa368cfa0d11e4225f8c5451b1')
     version('0.14.0rc2',                   sha256='486739a1ea1631271af7ffd9c4c4ec1bbc230e7ebea6829319abdb6d3d5adeb1')
