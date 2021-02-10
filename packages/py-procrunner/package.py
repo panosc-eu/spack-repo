@@ -33,7 +33,7 @@ class PyProcrunner(PythonPackage):
 
     # FIXME: Add a list of GitHub accounts to
     # notify when the package is updated.
-    # maintainers = ['github_user1', 'github_user2']
+    maintainers = ['RobertRosca', 'julianhoersch']
 
     version('2.3.0', sha256='44a18bfdff242d2efae92a94da40a87b1a0eb3d6248cb459cf94ec719be5edd9')
     version('2.2.0', sha256='b5c4fe17ab31f8907db61284e037139f5facc3c7ca5a2a6dc83aa8828680a440')
