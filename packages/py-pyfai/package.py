@@ -45,7 +45,7 @@ class PyPyfai(PythonPackage):
     version('0.17.1', sha256='e4c2b53c71b638d5f532f5e557a87a79d1a3ab46552e4b5ad0f071e996f3974d')
 
     # FIXME: Add dependencies if required.
-    #dependencies for install and setup 
+    # dependencies for install and setup 
     depends_on('python@3.6:', type=('build', 'run'))
     depends_on('py-setuptools', type='build')
     depends_on('py-numpy')
@@ -55,13 +55,13 @@ class PyPyfai(PythonPackage):
     depends_on('py-numexpr')
     depends_on('py-silx@0.10:')
 
-    #other dependencies
+    # other dependencies
     depends_on('py-cython')
     depends_on('py-wheel')
     depends_on('py-transformations')
     #depends_on('py-nbsphinx') commited to spack but not in spack repo yet
 
-    #gui dependencies (not all available)
+    # gui dependencies (not all available)
     #depends_on('py-pyqt5') 
     #depends_on('py-hdf5plugin') 
     #depends_on('py-h5py')
