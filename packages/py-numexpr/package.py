@@ -61,7 +61,7 @@ class PyNumexpr(PythonPackage):
     depends_on('py-setuptools', type='build')
     depends_on('py-numpy@1.7:')
 
-    #test dependencies
+    # test dependencies
     depends_on('py-coverage@:4.9', type='test')
     depends_on('py-pytest', type='test')
     depends_on('py-pytest-cov', type='test')
