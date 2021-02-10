@@ -37,7 +37,7 @@ class PyFabio(PythonPackage):
 
     # FIXME: Add a list of GitHub accounts to
     # notify when the package is updated.
-    maintainers = ['robertrosca']
+    maintainers = ['RobertRosca', 'julianhoersch']
 
     version('0.10.2', sha256='597d7afe414da9b16afeb91439b669d268c8bcfefed1fe400b9a26d93ae58243')
     version('0.10.1', sha256='0c89c5afdead668beae8e79948a6eae7c1d4767c33acde96d68bfe3a2d7dcd96')
@@ -48,7 +48,8 @@ class PyFabio(PythonPackage):
     depends_on('python@3.6:',   type=('build', 'run'))
     depends_on('py-setuptools', type='build')
     depends_on('py-numpy')
-
+    
+    #test dependencies
     depends_on('py-coverage@:4.9', type='test')
     depends_on('py-pytest', type='test')
     depends_on('py-pytest-cov', type='test')
