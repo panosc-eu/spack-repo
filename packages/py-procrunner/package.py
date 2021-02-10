@@ -52,6 +52,7 @@ class PyProcrunner(PythonPackage):
     depends_on('python@3.6:', type=('build', 'run'))
     depends_on('py-setuptools', type='build')
     
+    # test dependencies
     depends_on('py-coverage@:4.9', type='test')
     depends_on('py-pytest', type='test')
     depends_on('py-pytest-cov', type='test')
