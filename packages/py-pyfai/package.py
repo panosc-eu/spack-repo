@@ -24,10 +24,15 @@ from spack import *
 
 
 class PyPyfai(PythonPackage):
-    """FIXME: Put a proper description of your package here."""
+    """PyFAI is an azimuthal integration library that tries to be fast (as fast as C and even more 
+    using OpenCL and GPU). It is based on histogramming of the 2theta/Q positions of each (center of) 
+    pixel weighted by the intensity of each pixel, but parallel version uses a SparseMatrix-DenseVector 
+    multiplication. Neighboring output bins get also a contribution of pixels next to the border thanks 
+    to pixel splitting. Finally pyFAI provides also tools to calibrate the experimental setup using 
+    Debye-Scherrer rings of a reference compound."""
 
     # FIXME: Add a proper url for your package's homepage here.
-    homepage = "https://www.example.com"
+    homepage = "https://github.com/silx-kit/pyFAI"
     url      = "https://github.com/silx-kit/pyFAI/archive/v0.19.0.tar.gz"
 
     # FIXME: Add a list of GitHub accounts to
@@ -40,20 +45,28 @@ class PyPyfai(PythonPackage):
     version('0.17.1', sha256='e4c2b53c71b638d5f532f5e557a87a79d1a3ab46552e4b5ad0f071e996f3974d')
 
     # FIXME: Add dependencies if required.
+    #dependencies for install and setup 
     depends_on('python@3.6:', type=('build', 'run'))
     depends_on('py-setuptools', type='build')
     depends_on('py-numpy')
-    depends_on('py-cython')
-    depends_on('py-fabio')
-    depends_on('py-scipy')
+    depends_on('py-fabio@0.5:')
     depends_on('py-matplotlib')
+    depends_on('py-scipy')
     depends_on('py-numexpr')
-    depends_on('py-h5py')
-    depends_on('py-silx')
-    depends_on('py-pyopengl')
-    depends_on('py-pyqt5') 
-    depends_on('py-hdf5plugin')
+    depends_on('py-silx@0.10:')
+
+    #other dependencies
+    depends_on('py-cython')
     depends_on('py-wheel')
+    depends_on('py-transformations')
+    #depends_on('py-nbsphinx') commited to spack but not in spack repo yet
+
+    #gui dependencies (not all available)
+    #depends_on('py-pyqt5') 
+    #depends_on('py-hdf5plugin') 
+    #depends_on('py-h5py')
+    #depends_on('py-pyopengl')
+    #depends_on('py-pyopencl')
 
     def build_args(self, spec, prefix):
         # FIXME: Add arguments other than --prefix
