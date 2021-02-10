@@ -63,7 +63,8 @@ class PySilx(PythonPackage):
     depends_on('py-h5py')
     depends_on('py-fabio@0.9:')
     depends_on('py-six')
-
+    
+    # test dependencies
     depends_on('py-coverage@:4.9', type='test')
     depends_on('py-pytest', type='test')
     depends_on('py-pytest-cov', type='test')
