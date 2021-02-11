@@ -32,7 +32,7 @@ WORKDIR /opt/spack/etc/spack/
 RUN spack repo add --scope=site /opt/spack/etc/spack/panosc-eu-repo
 #  Parallel installation of the dependencies defined in
 #  `.github/spack-config/spack.yaml`
-RUN spack-parallel spack --env . install --only=dependencies
+RUN spack-parallel spack --env . install --test=root --only=dependencies
 #  In case `--only=dependencies` accidentally installs a package we want to test
 #  we find all the explicitly installed packages and uninstall them
 RUN echo Uninstalling: && spack --env . find -xcl --no-groups
