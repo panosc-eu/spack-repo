@@ -12,11 +12,10 @@ jobs:
   package-test-{PACKAGE}:
     runs-on: ubuntu-latest
     container:
-      image: roscarxfel/spack-repo-testenv:latest
+      image: robertrosca/panosc-spack-centos7:0.16.0v1
     steps:
       - uses: actions/checkout@v2
       - run: |
-          source /opt/spack/share/spack/setup-env.sh
           echo Spack version: $(spack --version)
           echo Tests for package {PACKAGE}
           spack repo add --scope=site ./
