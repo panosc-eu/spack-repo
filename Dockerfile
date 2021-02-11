@@ -29,15 +29,15 @@ RUN spack find
 
 FROM core
 WORKDIR /opt/spack/etc/spack/
-RUN spack repo add --scope=site /opt/spack/etc/panosc-eu-repo/
+RUN spack repo add --scope=site /opt/spack/etc/spack/panosc-eu-repo
 #  Parallel installation of the dependencies defined in
 #  `.github/spack-config/spack.yaml`
 RUN spack-parallel spack --env . install --only=dependencies
 #  In case `--only=dependencies` accidentally installs a package we want to test
 #  we find all the explicitly installed packages and uninstall them
-RUN echo Uninstalling $(spack find -xc --no-groups | grep @)
-RUN for p in $(spack find -xc --no-groups | grep @); do spack uninstall --force -y $p; done; exit 0
+RUN echo Uninstalling: && spack --env . find -xcl --no-groups
+RUN for p in $(spack --env . find -xcl --no-groups | grep @ | cut -d' ' -f1); do spack --env . uninstall --force -y /$p; done || true
 #  Remove the repo as it would conflict with the tests
-RUN spack repo remove panosc-eu-repo
+RUN spack repo remove --scope=site panosc-eu-repo
 #  Install some common test packages here
 RUN spack install py-coverage py-pytest py-pytest-cov py-testpath py-mock
