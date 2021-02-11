@@ -33,18 +33,19 @@ The workflows run only when their respective package files change, which means
 that tests are not re-ran if a dependency changes, only if the package file
 changes.
 
-Workflows run in a docker container `roscarxfel/spack-repo-testenv:latest` which
-is covered in a different sections.
+Workflows run in a docker container `robertrosca/panosc-spack-centos7:0.16.0v1`
+which is explained in the [Test Environment Image](#test-environment-image)
+section.
 
 Workflows run the following commands:
 
 ```
-source /opt/spack/share/spack/setup-env.sh
 echo Spack version: $(spack --version)
 echo Tests for package {PACKAGE}
 spack repo add --scope=site ./
 spack install --test=root --verbose {PACKAGE}
 ```
+
 Currently only the tests included in the packages themselves (e.g. for a
 Python package, those run by `python setup.py test`) are ran.
 
@@ -61,6 +62,13 @@ minutes to well over an hour to run, which is a bit too long.
 This means that whenever a new package is added, the package should be added to
 the spack environment file and then the Docker image should be re-built so that
 the required dependencies are included.
+
+To speed up the initial container build process we use the [E4S
+Buildcache](https://e4s-project.github.io/download.html) which provides a binary
+mirror of some common packages. For the cache to be valid the configurations for
+the package being installed **must** be identical down to the hash, to ensure
+this is the case we use the same `packages.yaml` configuration as the one used
+by E4S (`~/.github/spack/config/packages.yaml`)
 
 ### GitHub Workflows
 
