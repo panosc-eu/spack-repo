@@ -20,4 +20,4 @@ jobs:
           echo Spack version: $(spack --version)
           echo Tests for package py-cfelpyutils
           spack repo add --scope=site ./
-          spack install --test=root --verbose py-cfelpyutils
+          spack-parallel spack install --test=root --verbose py-cfelpyutils

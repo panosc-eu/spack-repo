@@ -20,4 +20,4 @@ jobs:
           echo Spack version: $(spack --version)
           echo Tests for package crystfel
           spack repo add --scope=site ./
-          spack install --test=root --verbose crystfel
+          spack-parallel spack install --test=root --verbose crystfel

@@ -20,4 +20,4 @@ jobs:
           echo Spack version: $(spack --version)
           echo Tests for package py-msgpack-numpy
           spack repo add --scope=site ./
-          spack install --test=root --verbose py-msgpack-numpy
+          spack-parallel spack install --test=root --verbose py-msgpack-numpy

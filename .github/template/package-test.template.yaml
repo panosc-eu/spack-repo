@@ -16,7 +16,8 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - run: |
+          source /opt/spack/share/spack/setup-env.sh
           echo Spack version: $(spack --version)
           echo Tests for package {PACKAGE}
           spack repo add --scope=site ./
-          spack install --test=root --verbose {PACKAGE}
+          spack-parallel spack install --test=root --verbose {PACKAGE}

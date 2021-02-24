@@ -20,4 +20,4 @@ jobs:
           echo Spack version: $(spack --version)
           echo Tests for package py-extra-data
           spack repo add --scope=site ./
-          spack install --test=root --verbose py-extra-data
+          spack-parallel spack install --test=root --verbose py-extra-data

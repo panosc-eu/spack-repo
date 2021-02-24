@@ -20,4 +20,4 @@ jobs:
           echo Spack version: $(spack --version)
           echo Tests for package py-karabo-bridge
           spack repo add --scope=site ./
-          spack install --test=root --verbose py-karabo-bridge
+          spack-parallel spack install --test=root --verbose py-karabo-bridge

@@ -2,7 +2,7 @@ import yaml
 from copy import copy
 
 
-with open("./spack-config/spack.yaml") as f:
+with open("../.docker/opt/spack/etc/spack/spack.yaml") as f:
     spack = yaml.safe_load(f)
     specs = spack["spack"]["specs"][:]
 

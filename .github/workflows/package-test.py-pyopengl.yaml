@@ -20,4 +20,4 @@ jobs:
           echo Spack version: $(spack --version)
           echo Tests for package py-pyopengl
           spack repo add --scope=site ./
-          spack install --test=root --verbose py-pyopengl
+          spack-parallel spack install --test=root --verbose py-pyopengl
