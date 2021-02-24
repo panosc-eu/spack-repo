@@ -68,7 +68,8 @@ Buildcache](https://e4s-project.github.io/download.html) which provides a binary
 mirror of some common packages. For the cache to be valid the configurations for
 the package being installed **must** be identical down to the hash, to ensure
 this is the case we use the same `packages.yaml` configuration as the one used
-by E4S (`~/.github/spack/config/packages.yaml`)
+by E4S, this is at `.docker/opt/spack/etc/spack/packages.yaml` and is copied
+into the container during the docker build process.
 
 ### GitHub Workflows
 
@@ -99,9 +100,10 @@ When Dependabot finds an outdated dependency it will open a PR to bump the
 version, this is an indication that the version in the `package.py` file should
 also be bumped.
 
-Dependabot automatically created a branch like: `dependabot/pip/dot-github/dependabot/{PACKAGE_NAME}-{BUMP_VERSION}`,
-you should switch to that branch and make any relevant updates to the
-`package.py` file there, before merging.
+Dependabot automatically creates a branch like:
+`dependabot/pip/dot-github/dependabot/{PACKAGE_NAME}-{BUMP_VERSION}`, you should
+switch to that branch and make any relevant updates to the `package.py` file
+there, before merging.
 
 For example, look at this [PR from Dependabot](https://github.com/panosc-eu/spack-repo/pull/2)
 which bumps extra-geom to a newer version. The PR was automatically generated,
@@ -136,11 +138,19 @@ the tests pass on the PR merge to master.
 
 ### PR Checklist:
 
-- Add new package to `.github/spack-config/spack.yaml`
-- Rebuild Docker container so that new dependencies are added
+- Add new package to `.docker/opt/spack/etc/spack/packages.yaml`
+- If it is a python package, also add `.github/dependabot/requirements.txt`
+- Rebuild Docker container so that new dependencies are added *
 - Add package to status table in readme
+
+\* To really speed up the container build it should include all of the **test
+  dependencies** as well, however there currently is no way to install a package
+  through spack with the test dependencies and without running tests
+  (https://github.com/spack/spack/issues/21647). A workaround for this is to
+  temporarily comment out all of the tests in our packages, build the image so
+  that the tests do not run but so that the dependencies are included, push the
+  updated image, and then revert the packages to their original versions.
 
 ## TODO
 
 - Scheduled tests?
-- Dependabot integration?
