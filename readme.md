@@ -33,7 +33,7 @@ The workflows run only when their respective package files change, which means
 that tests are not re-ran if a dependency changes, only if the package file
 changes.
 
-Workflows run in a docker container `robertrosca/panosc-spack-centos7:0.16.0v2`
+Workflows run in a docker container `robertrosca/panosc-spack-centos7:0.16.0v3`
 which is explained in the [Test Environment Image](#test-environment-image)
 section.
 
