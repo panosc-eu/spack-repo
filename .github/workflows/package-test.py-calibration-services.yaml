@@ -1,0 +1,23 @@
+name: py-calibration-services
+
+on:
+  push:
+    branches: [ master ]
+    paths: ['packages/py-calibration-services/**']
+  pull_request:
+    branches: [ master ]
+    paths: ['packages/py-calibration-services/**']
+
+jobs:
+  package-test-py-calibration-services:
+    runs-on: ubuntu-latest
+    container:
+      image: roscarxfel/spack-repo-testenv:latest
+    steps:
+      - uses: actions/checkout@v2
+      - run: |
+          source /opt/spack/share/spack/setup-env.sh
+          echo Spack version: $(spack --version)
+          echo Tests for package py-calibration-services
+          spack repo add --scope=site ./
+          spack install --test=root --verbose py-calibration-services
