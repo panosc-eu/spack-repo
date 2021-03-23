@@ -12,7 +12,7 @@ jobs:
   package-test-py-extra-geom:
     runs-on: ubuntu-latest
     container:
-      image: robertrosca/panosc-spack-centos7:0.16.0v3
+      image: robertrosca/panosc-spack-centos7@sha256:2485bf065ffd5cccff8f3acc98476ff0add22ef11a47516630deec949720265e
     steps:
       - uses: actions/checkout@v2
       - run: |
