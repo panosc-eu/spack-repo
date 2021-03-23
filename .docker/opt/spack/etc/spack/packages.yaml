@@ -1,0 +1,80 @@
+packages:
+  all:
+    providers:
+      blas: [openblas]
+      mpi: [mpich]
+    variants: +mpi
+    target: [x86_64]
+    compiler: [gcc@8.1.0]
+  autoconf:
+    version: [2.69]
+  automake:
+    version: [1.16.2]
+  berkeley-db:
+    version: [18.1.4]
+  binutils:
+    variants: +gold+headers+libiberty~nls
+    version: [2.33.1]
+  boost:
+    version: [1.73.0]
+  bzip2:
+    version: [1.0.8]
+  cmake:
+    version: [3.17.3]
+  diffutils:
+    version: [3.7]
+  elfutils:
+    version: [0.18]
+  expat:
+    version: [2.2.9]
+  gdbm:
+    version: [1.18.1]
+  gettext:
+    version: [0.20.2]
+  hdf5:
+    variants: +fortran
+    version: [1.10.6]
+  help2man:
+    version: [1.47.11]
+  libbsd:
+    version: [0.10.0]
+  libiconv:
+    version: [1.16]
+  libsigsegv:
+    version: [2.12]
+  libunwind:
+    version: [1.4.0]
+  libxml2:
+    version: [2.9.10]
+  m4:
+    version: [1.4.18]
+  mpich:
+    variants: ~wrapperrpath
+    version: [3.2.1]
+  ncurses:
+    version: [6.2]
+  openblas:
+    version: [0.3.10]
+  perl:
+    version: [5.30.3]
+  pkgconf:
+    version: [1.7.3]
+  python:
+    version: [3.7.8]
+  # This is specified here due to an openblas GCC incompatibility, this version
+  # of py-numpy is present in the E4S buildcache so we can just pull it w/o
+  # having to go through the build process
+  py-numpy:
+    version: [1.19.1]
+  readline:
+    version: [8]
+  sqlite:
+    version: [3.31.1]
+  tar:
+    version: [1.32]
+  texinfo:
+    version: [6.5]
+  xz:
+    version: [5.2.5]
+  zlib:
+    version: [1.2.11]

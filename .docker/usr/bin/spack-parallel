@@ -1,0 +1,9 @@
+#!/bin/bash
+
+for i in $( seq 0 $(nproc) );
+do
+  $@ 2>&1 | tee ./spack-install.log &
+  sleep 1  # Starting all parallel jobs at once can lead to errors, slow down a bit!
+done
+
+wait

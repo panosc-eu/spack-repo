@@ -60,12 +60,11 @@ class PyExtraGeom(PythonPackage):
     depends_on('py-pytest-cov', type='test')
     depends_on('py-testpath', type='test')
 
-    def test(self):
-        # `setup.py test` should not be used as:
-        #   - `python3 -m pytest -v` should be ran instead
-        #   - the builtin `test` method runs before `install` is finished
-        self.pytest()
+    def build_test(self):
+        pass
 
+    @run_after('install')
+    @on_package_attributes(run_tests=True)
     def pytest(self):
         with working_dir('.'):
             prefix = self.spec.prefix

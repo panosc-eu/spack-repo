@@ -9,4 +9,3 @@ spack:
     # - py-pyfai
     - py-pyopengl
   view: False
-  concretization: together
