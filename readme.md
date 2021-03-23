@@ -10,15 +10,14 @@ build times.
 
 ## Package status:
 
-| package          |                                                                                                                                                                     status | repo-deps                   | notes |
-|------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------:|-----------------------------|-------|
+| package          |                                                                                                                                                                     status | repo-deps               | notes |
+|------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------:|-------------------------|-------|
 | crystfel         | [![](https://github.com/panosc-eu/spack-repo/workflows/crystfel/badge.svg)](https://github.com/panosc-eu/spack-repo/actions?query=workflow%3Acrystfel)                 |                             | wip   |
 | py-cfelpyutils   | [![](https://github.com/panosc-eu/spack-repo/workflows/py-cfelpyutils/badge.svg)](https://github.com/panosc-eu/spack-repo/actions?query=workflow%3Apy-cfelpyutils)     |                             | wip   |
 | py-extra-data    | [![](https://github.com/panosc-eu/spack-repo/workflows/py-extra-data/badge.svg)](https://github.com/panosc-eu/spack-repo/actions?query=workflow%3Apy-extra-data)       | py-karabo-bridge, py-fabio  | wip   |
 | py-extra-geom    | [![](https://github.com/panosc-eu/spack-repo/workflows/py-extra-geom/badge.svg)](https://github.com/panosc-eu/spack-repo/actions?query=workflow%3Apy-extra-geom)       | py-cfelpyutils              | wip   |
 | py-fabio         | [![](https://github.com/panosc-eu/spack-repo/workflows/py-fabio/badge.svg)](https://github.com/panosc-eu/spack-repo/actions?query=workflow%3Apy-fabio)                 |                             | wip   |
-| py-karabo-bridge | [![](https://github.com/panosc-eu/spack-repo/workflows/py-karabo-bridge/badge.svg)](https://github.com/panosc-eu/spack-repo/actions?query=workflow%3Apy-karabo-bridge) | py-msgpack-numpy            | wip   |
-| py-msgpack-numpy | [![](https://github.com/panosc-eu/spack-repo/workflows/py-msgpack-numpy/badge.svg)](https://github.com/panosc-eu/spack-repo/actions?query=workflow%3Apy-msgpack-numpy) |                             | wip   |
+| py-karabo-bridge | [![](https://github.com/panosc-eu/spack-repo/workflows/py-karabo-bridge/badge.svg)](https://github.com/panosc-eu/spack-repo/actions?query=workflow%3Apy-karabo-bridge) |                             | wip   |
 | py-pyfai         | [![](https://github.com/panosc-eu/spack-repo/workflows/py-pyfai/badge.svg)](https://github.com/panosc-eu/spack-repo/actions?query=workflow%3Apy-pyfai)                 | py-fabio, py-hdf5plugin     | wip   |
 
 ## Notes
