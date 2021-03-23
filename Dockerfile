@@ -1,4 +1,4 @@
-FROM spack/centos7:0.16.0 AS core
+FROM spack/centos7@sha256:5718b3db32a073cfebb78a3e16cfbbfb3a0c44131a0bd7e1385ee36b01db8066 AS core
 #  Copy over our configurations
 COPY .docker/. /.
 COPY ./ /opt/spack/etc/spack/panosc-eu-repo
