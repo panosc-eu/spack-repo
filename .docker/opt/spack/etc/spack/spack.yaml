@@ -5,7 +5,6 @@ spack:
     - py-extra-data
     - py-extra-geom
     - py-karabo-bridge
-    - py-msgpack-numpy
     # - py-pyfai
     - py-pyopengl
   view: False
