@@ -56,10 +56,10 @@ class PyTransformations(PythonPackage):
     depends_on('py-testpath', type='test')
     
     def test(self):
-    # `setup.py test` should not be used as:
-    #   - `python3 -m pytest -v` should be ran instead
-    #   - the builtin `test` method runs before `install` is finished
-    self.pytest()
+        # `setup.py test` should not be used as:
+        #   - `python3 -m pytest -v` should be ran instead
+        #   - the builtin `test` method runs before `install` is finished
+        self.pytest()
 
     def pytest(self):
         with working_dir('.'):
