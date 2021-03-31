@@ -66,8 +66,8 @@ class PyTransformations(PythonPackage):
             prefix = self.spec.prefix
             #  Add bin to path here, as tests also check entrypoints
             env['PATH'] = env['PATH']+":"+prefix+"/bin"
-            python3('-m', 'pytest', '-v')
-
+            python3('-m', 'doctest.testmod()', '-v')          
+            
     def build_args(self, spec, prefix):
         # FIXME: Add arguments other than --prefix
         # FIXME: If not needed delete this function
