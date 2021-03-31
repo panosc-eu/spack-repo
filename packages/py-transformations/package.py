@@ -47,7 +47,7 @@ class PyTransformations(PythonPackage):
     # added implicity by the PythonPackage class.
     depends_on('python@3.6:', type=('build', 'run'))
     depends_on('py-setuptools@18.0:', type='build')
-    depends_on('py-numpy@1.14.5:')
+    depends_on('py-numpy@1.14.5:' type=('build', 'test'))
 
     # test dependencies
     depends_on('py-coverage@:4.9', type='test')
