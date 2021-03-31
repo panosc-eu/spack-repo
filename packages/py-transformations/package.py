@@ -47,13 +47,26 @@ class PyTransformations(PythonPackage):
     # added implicity by the PythonPackage class.
     depends_on('python@3.6:', type=('build', 'run'))
     depends_on('py-setuptools@18.0:', type='build')
-    depends_on('py-numpy@1.14.5:', type=('build', 'test'))
+    depends_on('py-numpy@1.14.5:')
 
     # test dependencies
     depends_on('py-coverage@:4.9', type='test')
     depends_on('py-pytest', type='test')
     depends_on('py-pytest-cov', type='test')
     depends_on('py-testpath', type='test')
+    
+    def test(self):
+    # `setup.py test` should not be used as:
+    #   - `python3 -m pytest -v` should be ran instead
+    #   - the builtin `test` method runs before `install` is finished
+    self.pytest()
+
+    def pytest(self):
+        with working_dir('.'):
+            prefix = self.spec.prefix
+            #  Add bin to path here, as tests also check entrypoints
+            env['PATH'] = env['PATH']+":"+prefix+"/bin"
+            python3('-m', 'pytest', '-v')
 
     def build_args(self, spec, prefix):
         # FIXME: Add arguments other than --prefix
