@@ -46,7 +46,7 @@ class PyKaraboBridge(PythonPackage):
     depends_on('python@3.6:',   type=('build', 'run'))
     depends_on('py-setuptools', type='build')
     depends_on('py-msgpack@0.5.4:')
-    depends_on('py-msgpack-numpy') # custom
+    depends_on('py-msgpack-numpy')
     depends_on('py-numpy')
     depends_on('py-pyzmq@17.0.0:')
 

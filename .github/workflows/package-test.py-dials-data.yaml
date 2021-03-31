@@ -1,15 +1,15 @@
-name: py-pyopengl
+name: py-dials-data
 
 on:
   push:
     branches: [ master ]
-    paths: ['packages/py-pyopengl/**']
+    paths: ['packages/py-dials-data/**']
   pull_request:
     branches: [ master ]
-    paths: ['packages/py-pyopengl/**']
+    paths: ['packages/py-dials-data/**']
 
 jobs:
-  package-test-py-pyopengl:
+  package-test-py-dials-data:
     runs-on: ubuntu-latest
     container:
       image: robertrosca/panosc-spack-centos7@sha256:5a4c73caa9808d931e4b98f7e0610231ba37ae89bc04398c8f84f14a6b2eb2af
@@ -18,9 +18,9 @@ jobs:
       - run: |
           source /opt/spack/share/spack/setup-env.sh
           echo Spack version: $(spack --version)
-          echo Tests for package py-pyopengl
+          echo Tests for package py-dials-data
           spack repo add --scope=site ./
-          spack-parallel-install-test py-pyopengl
+          spack-parallel-install-test py-dials-data
           if spack test results | grep -q "FAILED"; then
             exit 1
           else

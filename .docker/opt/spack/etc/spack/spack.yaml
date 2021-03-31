@@ -15,4 +15,3 @@ spack:
     - py-silx
     - py-transformations
   view: False
-  concretization: together

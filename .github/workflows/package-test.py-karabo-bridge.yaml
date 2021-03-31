@@ -12,7 +12,7 @@ jobs:
   package-test-py-karabo-bridge:
     runs-on: ubuntu-latest
     container:
-      image: roscarxfel/spack-repo-testenv:latest
+      image: robertrosca/panosc-spack-centos7@sha256:5a4c73caa9808d931e4b98f7e0610231ba37ae89bc04398c8f84f14a6b2eb2af
     steps:
       - uses: actions/checkout@v2
       - run: |
@@ -20,4 +20,9 @@ jobs:
           echo Spack version: $(spack --version)
           echo Tests for package py-karabo-bridge
           spack repo add --scope=site ./
-          spack install --test=root --verbose py-karabo-bridge
+          spack-parallel-install-test py-karabo-bridge
+          if spack test results | grep -q "FAILED"; then
+            exit 1
+          else
+            exit 0
+          fi
