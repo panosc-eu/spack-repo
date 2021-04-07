@@ -57,6 +57,8 @@ class PyExtraData(PythonPackage):
     depends_on('py-pytest-cov', type='test')
     depends_on('py-testpath', type='test')
 
+    install_time_test_callbacks = ['import_module_test']
+
     def test(self):
         # `setup.py test` should not be used as:
         #   - `python3 -m pytest -v` should be ran instead

@@ -63,6 +63,8 @@ class PyDialsData(PythonPackage):
     depends_on('py-pytest-cov', type='test')
     depends_on('py-testpath', type='test')
 
+    install_time_test_callbacks = ['import_module_test']
+
     def build_args(self, spec, prefix):
         # FIXME: Add arguments other than --prefix
         # FIXME: If not needed delete this function
