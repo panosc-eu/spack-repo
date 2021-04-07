@@ -1,0 +1,28 @@
+name: py-fabio
+
+on:
+  push:
+    branches: [ master ]
+    paths: ['packages/py-fabio/**']
+  pull_request:
+    branches: [ master ]
+    paths: ['packages/py-fabio/**']
+
+jobs:
+  package-test-py-fabio:
+    runs-on: ubuntu-latest
+    container:
+      image: robertrosca/panosc-spack-centos7@sha256:5a4c73caa9808d931e4b98f7e0610231ba37ae89bc04398c8f84f14a6b2eb2af
+    steps:
+      - uses: actions/checkout@v2
+      - run: |
+          source /opt/spack/share/spack/setup-env.sh
+          echo Spack version: $(spack --version)
+          echo Tests for package py-fabio
+          spack repo add --scope=site ./
+          spack-parallel-install-test py-fabio
+          if spack test results | grep -q "FAILED"; then
+            exit 1
+          else
+            exit 0
+          fi
