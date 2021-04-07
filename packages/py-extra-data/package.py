@@ -68,7 +68,7 @@ class PyExtraData(PythonPackage):
             prefix = self.spec.prefix
             #  Add bin to path here, as tests also check entrypoints
             env['PATH'] = env['PATH']+":"+prefix+"/bin"
-            python3('-m', 'pytest', '-v')
+            python('-m', 'pytest', '-v')
 
     def build_args(self, spec, prefix):
         # FIXME: Add arguments other than --prefix

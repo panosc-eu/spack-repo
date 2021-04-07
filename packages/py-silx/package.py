@@ -81,7 +81,7 @@ class PySilx(PythonPackage):
             prefix = self.spec.prefix
             #  Add bin to path here, as tests also check entrypoints
             env['PATH'] = env['PATH']+":"+prefix+"/bin"
-            python3('-m', 'silx.test.run_tests()', '-v')    
+            python('-m', 'silx.test.run_tests()', '-v')    
 
     def build_args(self, spec, prefix):
         # FIXME: Add arguments other than --prefix
