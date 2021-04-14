@@ -20,6 +20,7 @@ jobs:
           echo Spack version: $(spack --version)
           echo Tests for package crystfel
           spack repo add --scope=site ./
+          spack load crystfel
           spack-parallel-install-test crystfel
           if spack test results | grep -q "FAILED"; then
             exit 1

@@ -20,6 +20,7 @@ jobs:
           echo Spack version: $(spack --version)
           echo Tests for package py-fabio
           spack repo add --scope=site ./
+          spack load py-fabio
           spack-parallel-install-test py-fabio
           if spack test results | grep -q "FAILED"; then
             exit 1

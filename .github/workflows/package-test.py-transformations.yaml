@@ -20,6 +20,7 @@ jobs:
           echo Spack version: $(spack --version)
           echo Tests for package py-transformations
           spack repo add --scope=site ./
+          spack load py-transformations
           spack-parallel-install-test py-transformations
           if spack test results | grep -q "FAILED"; then
             exit 1
