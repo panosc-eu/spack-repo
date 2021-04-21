@@ -20,7 +20,6 @@ jobs:
           echo Spack version: $(spack --version)
           echo Tests for package py-extra-geom
           spack repo add --scope=site ./
-          spack load py-extra-geom
           spack-parallel-install-test py-extra-geom
           if spack test results | grep -q "FAILED"; then
             exit 1

@@ -20,7 +20,6 @@ jobs:
           echo Spack version: $(spack --version)
           echo Tests for package py-silx
           spack repo add --scope=site ./
-          spack load py-silx
           spack-parallel-install-test py-silx
           if spack test results | grep -q "FAILED"; then
             exit 1
