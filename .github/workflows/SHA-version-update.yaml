@@ -1,0 +1,12 @@
+name: SHA version update
+
+on:
+  pull_request:
+    branches: [ master ]
+    paths: ['dependabot/pip/dot-github/dependabot/*']
+
+jobs:
+  update-sha:
+    runs-on: ubuntu-latest
+    steps:
+      - run: ../bash update_sha.sh
