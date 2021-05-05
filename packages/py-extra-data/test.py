@@ -36,6 +36,7 @@ class PyExtraData(PythonPackage):
     install_time_test_callbacks = ['import_module_test']
 
     version('1.3.0', sha256='7150b0d7ec3ea97af9e0b81bd88aeddb0716e79b852c603a83f4f04ff65935ce')
+    version('1.3.0', sha256='7150b0d7ec3ea97af9e0b81bd88aeddb0716e79b852c603a83f4f04ff65935ce')
     version('1.2.0', sha256='bdb1da5469d314dc1c22cbbd1ecc6e1c9e0660bd1bada4f9a8efd97b3d8b1a0e')
 
     # FIXME: Add dependencies if required.
