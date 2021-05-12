@@ -25,15 +25,15 @@ package=$(echo $name'-'$new_version'.'$file_extension)
 wget -O $package $new_url
 
 # create sha256 sum, remove file again
-sha256_new=$(sha256sum $package | awk '{print $1}')
+new_sha256=$(sha256sum $package | awk '{print $1}')
 rm $package
 
 # replace version and sha
-sha256_old_line=$(cat package.py | grep "version('$old_version'")
-sha256_old=$(echo $sha256_old_line | grep -o -P "(?<=sha256=').*(?='\))")
-new_sha_line=$(echo "${sha256_old_line/$old_version/$new_version}")
-new_sha_line=$(echo "${new_sha_line/$sha256_old/$sha256_new}")
-sed -i "/$sha256_old_line/i\\$new_sha_line" package.py
+old_sha256_line=$(cat package.py | grep "version('$old_version'")
+old_sha256=$(echo $old_sha256_line | grep -o -P "(?<=sha256=').*(?='\))")
+new_sha_line=$(echo "${old_sha256_line/$old_version/$new_version}")
+new_sha_line=$(echo "${new_sha_line/$old_sha256/$new_sha256}")
+sed -i "/$old_sha256_line/i\\$new_sha_line" package.py
 
 # commit and push to PR branch
 git commit package.py -m "Update SHA256 in $name from $old_version to $new_version"
