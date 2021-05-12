@@ -12,7 +12,7 @@ jobs:
   package-test-crystfel:
     runs-on: ubuntu-latest
     container:
-      image: robertrosca/panosc-spack-centos7@sha256:ead0fa85360070a21a29e1e3c3879181f42683b8a1fc43a55bdd6cb3edf86d68
+      image: robertrosca/panosc-spack-centos7@sha256:5a4c73caa9808d931e4b98f7e0610231ba37ae89bc04398c8f84f14a6b2eb2af
     steps:
       - uses: actions/checkout@v2
       - run: |
@@ -20,4 +20,9 @@ jobs:
           echo Spack version: $(spack --version)
           echo Tests for package crystfel
           spack repo add --scope=site ./
-          spack-parallel spack install --test=root --verbose crystfel
+          spack-parallel-install-test crystfel
+          if spack test results | grep -q "FAILED"; then
+            exit 1
+          else
+            exit 0
+          fi
