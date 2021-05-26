@@ -2,8 +2,7 @@ name: SHA version update
 
 on:
   pull_request:
-    branches: [ master ]
-    paths: ['dependabot/pip/dot-github/dependabot/*']
+    branches: ['dependabot/pip/dot-github/dependabot/*']
 
 jobs:
   update-sha:
