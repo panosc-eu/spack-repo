@@ -9,7 +9,7 @@ old_version=$(echo $last_commit | grep -o -P '(?<=from ).*(?= to)')
 new_version=$(echo $last_commit | grep -o -P '(?<=to ).*(?= in)')
 
 # find corresponding package file
-cd ../packages/
+cd ./packages/
 directory=$(find . -maxdepth 1 -name '*'$name'*' -print)
 cd $directory
 
