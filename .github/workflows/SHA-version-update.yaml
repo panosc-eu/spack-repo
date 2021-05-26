@@ -11,4 +11,4 @@ jobs:
       - uses: actions/checkout@v2
         with:
           fetch-depth: 0
-      - run: ../bash update_sha.sh
+      - run: ./.github/update-sha.sh
