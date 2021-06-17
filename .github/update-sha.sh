@@ -1,14 +1,15 @@
 #!/bin/bash
 
+set -x
+
 # Script to update the SHA version
 
 # get name and version from dependabots last commit message
 last_commit=$(git log --author=dependabot --pretty=oneline -1)
 
-if [[ $last_commit =~ '.*Bump.*from.*to.*' ]]
+if [[ $last_commit =~ .*Bump.*from.*to.* ]]
 then
     name=$(echo $last_commit | grep -o -P '(?<=Bump ).*(?= from)')
-    old_version=$(echo $last_commit | grep -o -P '(?<=from ).*(?= to)')
     new_version=$(echo $last_commit | grep -o -P '(?<=to ).*(?= in)')
 
     # find corresponding package file
@@ -18,6 +19,9 @@ then
     cd $directory
 
     # substitute new url of updated version
+    old_url=$(cat ./package.py | grep 'url * = *"https' -m 1 | grep -oP '"\K[^"\047]+(?=["\047])')
+    old_file=$(basename -- ${old_url})
+    old_version=$(echo ${old_file} | sed -e "s/.bz2//;s/.dmg//;s/.tgz//;s/.gz//;s/.zip//;s/.xz//;s/.tar//;")
     old_url_line=$(cat package.py | grep "url.*=.*${old_version}.*")
     new_url_line=$(echo "${old_url_line/$old_version/$new_version}")
     sed -i "s#$old_url_line#$new_url_line#g" package.py
