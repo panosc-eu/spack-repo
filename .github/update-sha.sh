@@ -8,7 +8,6 @@ last_commit=$(git log --author=dependabot --pretty=oneline -1)
 if [[ $last_commit =~ .*Bump.*from.*to.* ]]
 then
     name=$(echo $last_commit | grep -o -P '(?<=Bump ).*(?= from)')
-    old_version=$(echo $last_commit | grep -o -P '(?<=from ).*(?= to)')
     new_version=$(echo $last_commit | grep -o -P '(?<=to ).*(?= in)')
 
     # find corresponding package file
