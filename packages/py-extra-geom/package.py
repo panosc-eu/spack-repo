@@ -28,7 +28,7 @@ class PyExtraGeom(PythonPackage):
 
     # FIXME: Add a proper url for your package's homepage here.
     homepage = "https://github.com/European-XFEL/EXtra-geom"
-    url      = "https://github.com/European-XFEL/EXtra-geom/archive/0.9.0.tar.gz"
+    url      = "https://github.com/European-XFEL/EXtra-geom/archive/1.4.0.tar.gz"
 
     # FIXME: Add a list of GitHub accounts to
     # notify when the package is updated.
@@ -39,6 +39,7 @@ class PyExtraGeom(PythonPackage):
     version('1.1.0',  sha256='c59a0301ccab81b541717e406e1b97844eb450c10df5e031b417b87987d90deb')
     version('1.0.0',  sha256='5d3d6c275b4f3b734005d5eb6ec1fb77361fdf386ae1e973859c7deb7e2dea81')
     version('0.10.0', sha256='01d1bb2edf5c6b624f3d598833e2729fe108f53991e2a9c58588ae0719295a10')
+    version('1.4.0',  sha256='3c1b5b64bad9ab12accf3c70c00fd396563cb69d2b0415a5373f21a1dedd44e1')
     version('0.9.0',  sha256='3a757a1517d016ca95f438c5aa9383dc1eefe45a242e651fe54ef4308324e41d')
     version('0.8.0',  sha256='329d3addec5d992f592720d93242efcf2d1e1272917de3207408033e1657d21d')
     version('0.7.0',  sha256='035986e7875301cabd0e1cfef7c31fa359fb92755e89507421bbf8db8c76b8d6')
