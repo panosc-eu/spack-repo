@@ -5,7 +5,7 @@
 # get name and version from dependabots last commit message
 last_commit=$(git log --author=dependabot --pretty=oneline -1)
 
-if [[ $last_commit =~ '.*Bump.*from.*to.*' ]]
+if [[ $last_commit =~ .*Bump.*from.*to.* ]]
 then
     name=$(echo $last_commit | grep -o -P '(?<=Bump ).*(?= from)')
     old_version=$(echo $last_commit | grep -o -P '(?<=from ).*(?= to)')
