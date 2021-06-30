@@ -1,5 +1,7 @@
 #!/bin/bash
 
+set -x
+
 # Script to update the SHA version
 
 # get name and version from dependabots last commit message
