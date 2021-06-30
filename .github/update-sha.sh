@@ -17,6 +17,9 @@ then
     cd $directory
 
     # substitute new url of updated version
+    old_url=$(cat ./package.py | grep 'url * = *"https' -m 1 | grep -oP '"\K[^"\047]+(?=["\047])')
+    old_file=$(basename -- ${old_url})
+    old_version=$(echo ${old_file} | sed -e "s/.bz2//;s/.dmg//;s/.tgz//;s/.gz//;s/.zip//;s/.xz//;s/.tar//;")
     old_url_line=$(cat package.py | grep "url.*=.*${old_version}.*")
     new_url_line=$(echo "${old_url_line/$old_version/$new_version}")
     sed -i "s#$old_url_line#$new_url_line#g" package.py
