@@ -25,9 +25,8 @@ class Xgandalf(CMakePackage):
     # does not work
     def cmake_args(self):
         args = [
-            self.define('XGANDALF_BUILD_EXECUTABLE', True,
+            self.define('XGANDALF_BUILD_EXECUTABLE', True),
             # self.define('USE_INSTALLED_PRECOMUTED_DATA', False),
-        ]
+            ]
 
         return args
-
