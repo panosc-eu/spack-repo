@@ -2,6 +2,6 @@ cfelpyutils==2.0.6
 extra_data==1.11.0
 extra_geom==1.7.0
 fabio==0.13.0
-karabo-bridge==0.6.0
+karabo-bridge==0.6.1
 pyFAI==0.21.2
 PyOpenGL==3.1.6
