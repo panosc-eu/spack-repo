@@ -4,4 +4,4 @@ extra_geom==1.7.0
 fabio==0.13.0
 karabo-bridge==0.6.0
 pyFAI==0.21.2
-PyOpenGL==3.1.5
+PyOpenGL==3.1.6
