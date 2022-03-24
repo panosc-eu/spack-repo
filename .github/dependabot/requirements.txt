@@ -1,4 +1,4 @@
-cfelpyutils==1.0.0
+cfelpyutils==2.0.6
 extra_data==1.11.0
 extra_geom==1.7.0
 fabio==0.13.0
