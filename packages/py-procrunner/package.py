@@ -24,15 +24,13 @@ from spack import *
 
 
 class PyProcrunner(PythonPackage):
-    """Versatile utility function to run external processes 
+    """Versatile utility function to run external processes
     Free software: BSD license Documentation: https://procrunner.readthedocs.io."""
 
-    # FIXME: Add a proper url for your package's homepage here.
     homepage = "https://procrunner.readthedocs.io"
     url      = "https://github.com/DiamondLightSource/python-procrunner/archive/v2.3.0.tar.gz"
 
-    # FIXME: Add a list of GitHub accounts to
-    # notify when the package is updated.
+
     maintainers = ['RobertRosca', 'julianhoersch']
 
     version('2.3.0', sha256='44a18bfdff242d2efae92a94da40a87b1a0eb3d6248cb459cf94ec719be5edd9')
@@ -46,20 +44,8 @@ class PyProcrunner(PythonPackage):
     version('0.9.1', sha256='f721d7939156aa85fa3cee448005a3626fa23c915dd80e2d61e78f16d7857b4c')
     version('0.9.0', sha256='b38e889322603790aeb94b78a3682ee74b001a315f8b1df6772abb0bc0aa1afa')
 
-    # FIXME: Add dependencies if required. Only add the python dependency
-    # if you need specific versions. A generic python dependency is
-    # added implicity by the PythonPackage class.
+
     depends_on('python@3.6:', type=('build', 'run'))
     depends_on('py-setuptools', type='build')
-    
-    # test dependencies
-    depends_on('py-coverage@:4.9', type='test')
-    depends_on('py-pytest', type='test')
-    depends_on('py-pytest-cov', type='test')
-    depends_on('py-testpath', type='test')
 
-    def build_args(self, spec, prefix):
-        # FIXME: Add arguments other than --prefix
-        # FIXME: If not needed delete this function
-        args = []
-        return args
+
