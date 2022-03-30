@@ -24,9 +24,13 @@ class Vagabond(MesonPackage):
     version('0.0.0.95d54531',                               sha256='4ca686c28969ae275cbf5eef93b7dd8bcb8e5e6b9f5669c3eb4979a3fa19151f')
 
     depends_on('cmake@3.4:')
-    depends_on('qt+opengl')
     depends_on('libpng')
     depends_on('fftw')
     depends_on('mariadb')
     depends_on('boost')
     depends_on('crystfel@:0.9')
+
+    variant('gui', default=False, description='Builds with Qt GUI enabled')
+    depends_on('qt+opengl', when='+gui')
+    depends_on('opengl', when='+gui')
+

@@ -1,0 +1,24 @@
+name: SHA version update
+
+on:
+  pull_request:
+    branches: ['dependabot/pip/dot-github/dependabot/*']
+
+jobs:
+  update-sha:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+      - run: ./.github/update-sha.sh
+      - name: Commit files
+        run: |
+          git config --local user.email "49699333+dependabot[bot]@users.noreply.github.com"
+          git config --local user.name "dependabot[bot]"
+          git commit -m "Automatically update SHA" -m "$GITHUB_REF" -a
+      - name: Push changes
+        uses: ad-m/github-push-action@master
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          branch: ${{ github.ref }}
