@@ -1,0 +1,23 @@
+--- a/include/ff/ff_ana.hpp
++++ b/include/ff/ff_ana.hpp
+@@ -17,6 +17,7 @@
+ #ifndef _FF_ANA_HPP_
+ #define _FF_ANA_HPP_
+ 
++#include <iostream>
+ #include <vector>
+ 
+ #ifdef USE_MPI
+
+--- a/include/woo/timer/woo_boostchronotimers.hpp
++++ b/include/woo/timer/woo_boostchronotimers.hpp
+@@ -9,6 +9,8 @@
+ 
+ #include "wootimers.hpp"
+ #include <boost/chrono.hpp>
++#include <iostream>
++
+ 
+ #ifndef _WOOBOOSTCHRONOTIMERS_HPP_
+ #define _WOOBOOSTCHRONOTIMERS_HPP_
+

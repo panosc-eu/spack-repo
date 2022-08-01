@@ -1,0 +1,15 @@
+--- ./SConscript	2022-07-19 10:08:35.185528802 +0200
++++ ./SConscript.p	2022-07-19 10:08:31.822250216 +0200
+@@ -615,9 +615,9 @@
+     if using_accelerator != None:
+         print("Enabling use of accelerator: %s" % using_accelerator)
+ 
+-    if not using_mic:
+-      env.Append(CCFLAGS = ["-march=core-avx2"]) #, "-msse4.1", "-msse4.2", "-mssse3"])
+-      #env.Append(CCFLAGS = ["-no-vec"])
++    #if not using_mic:
++    #  env.Append(CCFLAGS = ["-march=core-avx2"]) #, "-msse4.1", "-msse4.2", "-mssse3"])
++    #  env.Append(CCFLAGS = ["-no-vec"])
+ 
+     if using_debug:
+         env.Append(CCFLAGS = ['-g'])
