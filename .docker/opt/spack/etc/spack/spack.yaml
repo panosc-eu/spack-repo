@@ -5,7 +5,15 @@ spack:
     - py-extra-data
     - py-extra-geom
     - py-karabo-bridge
-    # - py-pyfai
+    - py-msgpack-numpy
+    - py-pyfai
     - py-pyopengl
+    # - py-dials-data
+    # - py-extra-foam
+    - py-numexpr
+    - py-procrunner
+    - py-silx
+    - py-transformations
+    - py-fabio
     - vagabond
   view: False

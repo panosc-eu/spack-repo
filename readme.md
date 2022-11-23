@@ -17,8 +17,16 @@ build times.
 | py-extra-data    | [![](https://github.com/panosc-eu/spack-repo/workflows/py-extra-data/badge.svg)](https://github.com/panosc-eu/spack-repo/actions?query=workflow%3Apy-extra-data)       | py-karabo-bridge, py-fabio  | wip   |
 | py-extra-geom    | [![](https://github.com/panosc-eu/spack-repo/workflows/py-extra-geom/badge.svg)](https://github.com/panosc-eu/spack-repo/actions?query=workflow%3Apy-extra-geom)       | py-cfelpyutils              | wip   |
 | py-fabio         | [![](https://github.com/panosc-eu/spack-repo/workflows/py-fabio/badge.svg)](https://github.com/panosc-eu/spack-repo/actions?query=workflow%3Apy-fabio)                 |                             | wip   |
-| py-karabo-bridge | [![](https://github.com/panosc-eu/spack-repo/workflows/py-karabo-bridge/badge.svg)](https://github.com/panosc-eu/spack-repo/actions?query=workflow%3Apy-karabo-bridge) |                             | wip   |
-| py-pyfai         | [![](https://github.com/panosc-eu/spack-repo/workflows/py-pyfai/badge.svg)](https://github.com/panosc-eu/spack-repo/actions?query=workflow%3Apy-pyfai)                 | py-fabio, py-hdf5plugin     | wip   |
+| py-karabo-bridge | [![](https://github.com/panosc-eu/spack-repo/workflows/py-karabo-bridge/badge.svg)](https://github.com/panosc-eu/spack-repo/actions?query=workflow%3Apy-karabo-bridge) | py-msgpack-numpy            | wip   |
+| py-msgpack-numpy | [![](https://github.com/panosc-eu/spack-repo/workflows/py-msgpack-numpy/badge.svg)](https://github.com/panosc-eu/spack-repo/actions?query=workflow%3Apy-msgpack-numpy) |                             | wip   |
+| py-pyfai         | [![](https://github.com/panosc-eu/spack-repo/workflows/py-pyfai/badge.svg)](https://github.com/panosc-eu/spack-repo/actions?query=workflow%3Apy-pyfai)                 | py-fabio, py-numexpr, py-silx, py-transformations     | wip   |
+| py-dials-data         | [![](https://github.com/panosc-eu/spack-repo/workflows/py-dials-data/badge.svg)](https://github.com/panosc-eu/spack-repo/actions?query=workflow%3Apy-dials-data)                 |     | wip   |
+| py-dials         | [![](https://github.com/panosc-eu/spack-repo/workflows/py-dials/badge.svg)](https://github.com/panosc-eu/spack-repo/actions?query=workflow%3Apy-dials)                 | py-dials-data, py-procrunner    | not working   |
+| py-extra-foam         | [![](https://github.com/panosc-eu/spack-repo/workflows/py-extra-foam/badge.svg)](https://github.com/panosc-eu/spack-repo/actions?query=workflow%3Apy-extra-foam)                 | py-pyfai, py-extra-data, py-extra-geom, py-karabo-bridge, py-silx     | not working   |
+| py-numexpr        | [![](https://github.com/panosc-eu/spack-repo/workflows/py-numexpr/badge.svg)](https://github.com/panosc-eu/spack-repo/actions?query=workflow%3Apy-numexpr)                 |    | wip   |
+| py-procrunner         | [![](https://github.com/panosc-eu/spack-repo/workflows/py-procrunner/badge.svg)](https://github.com/panosc-eu/spack-repo/actions?query=workflow%3Apy-procrunner)                 |  | wip   |
+| py-silx         | [![](https://github.com/panosc-eu/spack-repo/workflows/py-silx/badge.svg)](https://github.com/panosc-eu/spack-repo/actions?query=workflow%3Apy-silx)                 | py-fabio     | wip   |
+| py-transformations         | [![](https://github.com/panosc-eu/spack-repo/workflows/py-transformations/badge.svg)](https://github.com/panosc-eu/spack-repo/actions?query=workflow%3Apy-transformations)                 |     | wip   |
 
 ## Notes
 

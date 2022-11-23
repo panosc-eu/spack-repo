@@ -3,38 +3,22 @@
 #
 # SPDX-License-Identifier: (Apache-2.0 OR MIT)
 
-# ----------------------------------------------------------------------------
-# If you submit this package back to Spack as a pull request,
-# please first remove this boilerplate and all FIXME comments.
-#
-# This is a template package file for Spack.  We've put "FIXME"
-# next to all the things you'll want to change. Once you've handled
-# them, you can save this file and test your package like this:
-#
-#     spack install py-extra-geom
-#
-# You can edit this file again by typing:
-#
-#     spack edit py-extra-geom
-#
-# See the Spack documentation for more information on packaging.
-# ----------------------------------------------------------------------------
-
 from spack import *
 
 
 class PyExtraGeom(PythonPackage):
     """Tools to work with EuXFEL detector geometry and assemble detector images."""
 
-    # FIXME: Add a proper url for your package's homepage here.
     homepage = "https://github.com/European-XFEL/EXtra-geom"
     url      = "https://github.com/European-XFEL/EXtra-geom/archive/0.9.0.tar.gz"
 
-    # FIXME: Add a list of GitHub accounts to
-    # notify when the package is updated.
     maintainers = ['github_user1', 'github_user2']
-    install_time_test_callbacks = ['import_module_test']
 
+    version('1.6.0',  sha256='6433a37a26d71a8b15aba79ddb3ab536dea924ff8afa50c021689746c94b586d')
+    version('1.5.0',  sha256='7b793245c662c67f311fb7ca2e8ad4bf56b39ad9cc67c17308fbe4e146734092')
+    version('1.4.0',  sha256='3c1b5b64bad9ab12accf3c70c00fd396563cb69d2b0415a5373f21a1dedd44e1')
+    version('1.3.0',  sha256='adb5dc06a15ec31ddce3c4df0ce938cc533ec4f815bfdc40e50afb04244eb73e')
+    version('1.2.0',  sha256='e97907cacd52b21a6d7a3a7d5bafd357e02a76af4ded9b94cbd3df7ff7b45ca7')
     version('1.1.1',  sha256='1131e1fdffe09266178e7df34425bc87e972c5a77c0081b54442cbf36a8eb0d1')
     version('1.1.0',  sha256='c59a0301ccab81b541717e406e1b97844eb450c10df5e031b417b87987d90deb')
     version('1.0.0',  sha256='5d3d6c275b4f3b734005d5eb6ec1fb77361fdf386ae1e973859c7deb7e2dea81')
@@ -46,34 +30,38 @@ class PyExtraGeom(PythonPackage):
     version('0.6.1',  sha256='a31943bdef21c740c94cbeebde8ec9f1348f5596c28ed639eae5603ef1074775')
     version('0.6.0',  sha256='17ca1939117016f6337c5f4051c4222ca47192c6fc004835e85e782b4ee8653f')
 
-    # FIXME: Add dependencies if required.
     depends_on('python@3.6:', type=('build', 'run'))
     depends_on('py-setuptools', type='build')
-    depends_on('py-cfelpyutils@0.92:')
+    depends_on('py-cfelpyutils@0.92:1') # excludes > 2.0
     depends_on('py-h5py@2.7.1:')
     depends_on('py-matplotlib')
     depends_on('py-numpy')
     depends_on('py-scipy')
 
+    # test dependencies
     depends_on('py-coverage@:4.9', type='test')
     depends_on('py-pytest', type='test')
     depends_on('py-pytest-cov', type='test')
     depends_on('py-testpath', type='test')
+    depends_on('py-xarray', type='test')
+    depends_on('py-extra-data', type='test')
+    # depends_on('py-nbval', type='test') # not available, tests pass without
 
-    def build_test(self):
-        pass
+    # not implemented error
+    # install_time_test_callbacks = ['import_module_test']
+    # use
+    install_time_test_callbacks = ['test']
 
-    @run_after('install')
-    @on_package_attributes(run_tests=True)
+    def test(self):
+        # `setup.py test` should not be used as:
+        #   - `python3 -m pytest -v` should be ran instead
+        #   - the builtin `test` method runs before `install` is finished
+        self.pytest()
+
     def pytest(self):
-        with working_dir('.'):
-            prefix = self.spec.prefix
+
+        prefix = self.spec.prefix
+        with working_dir(prefix):
             #  Add bin to path here, as tests also check entrypoints
             env['PATH'] = env['PATH']+":"+prefix+"/bin"
             python('-m', 'pytest', '-v')
-
-    def build_args(self, spec, prefix):
-        # FIXME: Add arguments other than --prefix
-        # FIXME: If not needed delete this function
-        args = []
-        return args

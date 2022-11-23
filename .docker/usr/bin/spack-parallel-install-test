@@ -8,6 +8,7 @@ done
 
 wait
 
+spack load $@
 spack test run $@
 
 exit $?
